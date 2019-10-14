@@ -41,8 +41,9 @@ class HomeWork_191011
 		System.out.printf("평균성적 : %2.3f ", avg);
 
 		/*
-		System.out.printf("평균성적 : %2.3d ", avg);
-		...이 맞을거 같은데 실상하면 에러남. 아래는 에러의 내용.
+		(1) System.out.printf("평균성적 : %2.3d ", avg);
+		    ...이 맞을거 같은데 실상하면 에러남. 아래는 에러의 내용.
+
 		Exception in thread "main" java.util.IllegalFormatPrecisionException: 3
         at java.util.Formatter$FormatSpecifier.checkInteger(Formatter.java:2984)
         at java.util.Formatter$FormatSpecifier.<init>(Formatter.java:2729)
@@ -51,6 +52,11 @@ class HomeWork_191011
         at java.io.PrintStream.format(PrintStream.java:970)
         at java.io.PrintStream.printf(PrintStream.java:871)
         at HomeWork_191011.main(HomeWork_191011.java:41)
+		
+		(2)print, println으로는 2.3f등이 불가능함.
+		   오로지 printf만이 %2.3f를 정상적으로 출력.
+		   
+		   printf()는 지시자를 통해 변수의 값을 여러 가지 형식으로 변환하여 출력할 수 있다.
 		*/
 
 		System.out.println(result);

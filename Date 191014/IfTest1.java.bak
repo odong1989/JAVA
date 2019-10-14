@@ -1,0 +1,21 @@
+/*단순 if문(1개의 if문만 쓰이는, else/elseif도 안쓰는) 예제
+*/
+
+import java.util.Scanner;
+
+class IfTest1
+{
+	public static void main(String[] args) 
+	{
+		Scanner Input = new Scanner(System.in);
+		System.out.println("정수 입력 : ");
+		int value = Input.nextInt();
+	
+		if (value<0)
+		{
+			System.out.println("음수입니다.");
+		}
+		System.out.println("if문과는 관계없습니다.");
+
+	}
+}

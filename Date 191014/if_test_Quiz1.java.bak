@@ -1,0 +1,12 @@
+import java.util.Scanner;
+
+class if_test_Quiz1 
+{
+	public static void main(String[] args) 
+	{
+		Scanner input = new Scanner(System.in);
+		int a,b,c;
+		System.out.println("a°ª ÀÔ·Â");
+		a=input.nextInt();
+	}
+}
