@@ -18,7 +18,7 @@ class if_test_Quiz3
 		{
 			System.out.println(year+"은 윤년입니다.");	
 		}			
-		else if(year %400 ==0)//100년의 제약조건 걸려도 400년마다 경우
+		else if(year %400 ==0)//100년의 제약조건 걸려도 400년마다인 경우를 확인
 		{
 		System.out.println(year+"은 윤년입니다.");
 		}
