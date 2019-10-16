@@ -1,0 +1,76 @@
+class ForTest2 
+{
+	public static void main(String[] args) 
+	{
+		int sum=0;
+		for(int i=1; i<=10; i++){
+			sum=sum+i;
+		}
+
+		System.out.println("1~10 합계 : " + sum);
+
+		sum=0;
+		//int sum=0;하면 똑같은 변수선언이 한 번더 되므로 에러로 처리된다. 
+		//혹시라도 깜박하고 해서 부끄부끄 하지 말자 -_-)+
+		for(int i=1; i<=100; i++){
+			sum=sum+i;
+		}
+
+		System.out.println("1~100 합계 : " + sum);	
+	
+
+		//연습 목록
+		//연습①1~100 중에서 홀수의 합계
+		//연습②~100 중에서 3의 배수이거나 5의 배수인 수의 합계
+		//연습③부터 정수들의 합계를 구한다. 이때 합계가 4000이 넘는 순간의 숫자는?
+
+
+		//연습①1~100 중에서 홀수의 합계
+		sum=0;
+		for(int i=1; i<=100;i++){
+			if(i%2 == 1)
+			{
+				continue;
+			}
+			sum=sum+i;
+		}
+		System.out.println("1~100의 홀수들의 합계 : " + sum);	
+		//선생님의 조언 : I+=2;으로 했으면 IF문 쓸 필요가 없었는데 아쉽다.
+
+
+
+		//연습②~100 중에서 3의 배수이거나 5의 배수인 수의 합계
+		sum=0;
+		System.out.print("체크한 3,5의배수 :  ");
+		for(int i=1; i<=100;i++){
+			if(i%3 == 0 || i%5 == 0 )
+			{
+			sum=sum+i;
+			System.out.print(i+" ");
+			}
+		}
+			System.out.println("1~100의 3이나 5의 배수들의 합계 : " + sum);	
+		
+
+		
+		//연습③부터 정수들의 합계를 구한다. 이때 합계가 4000이 넘는 순간의 숫자는?
+		sum=0;
+
+		for(int i=1; i<=100;i++){
+			sum=sum+i;
+			if(sum>=4000)
+			{
+				System.out.println("4000이 넘는 시점의 sum 값 : " + sum);
+				System.out.println("합계가 4000이 넘는 순간 합계에 사용한 숫자 :" +i );	
+				break;
+			}
+
+
+			System.out.print("i :" + i + " ");
+			System.out.println("sum :" + sum + " ");
+		}
+
+
+
+	}
+}

@@ -34,18 +34,21 @@ class Quiz_1_191015
 			System.out.printf("%.3f",exchange);
 			System.out.println("달러입니다.");			
 			break;
-		case "3" : 
-			exchange= WON / EUR;
-			System.out.print("환전되는 금액 : ");
-			System.out.printf("%.3f",exchange);
-			System.out.println("유로입니다.");			
-			break;
+
 		case "2" : 
 			exchange= WON / JYP;
 			System.out.print("환전되는 금액 : ");
 			System.out.printf("%.3f",exchange);
 			System.out.println("엔입니다.");			
 			break;
+			
+		case "3" : 
+			exchange= WON / EUR;
+			System.out.print("환전되는 금액 : ");
+			System.out.printf("%.3f",exchange);
+			System.out.println("유로입니다.");			
+			break;
+
 		default :
 			System.out.println("잘못된 입력입니다. 종료합니다");
 			return;
