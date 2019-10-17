@@ -1,3 +1,5 @@
+
+
 class ForTest3_part2 
 {
 	public static void main(String[] args) 
@@ -47,6 +49,15 @@ class ForTest3_part2
 		----------------------
 		*/
 
+/***************************************************************************************************************************/
+		/*
+		(ex1)
+		*
+		**
+		***
+		****
+		*****
+		*/
 		System.out.println("ex1");
 		for(int i =0; i<5;i++)
 		{
@@ -57,8 +68,14 @@ class ForTest3_part2
 			System.out.println("");
 		}
 		System.out.println("----------------------\n");
-
-
+		/*
+		(ex2)
+		*****
+		****
+		***
+		**
+		*
+		*/
 		System.out.println("ex2");
 		for(int i =0; i<5;i++)
 		{
@@ -70,6 +87,14 @@ class ForTest3_part2
 		}
 		System.out.println("----------------------\n");
 
+		/*
+		(ex3)
+			*
+		   **
+		  ***
+		 ****
+		*****
+		*/
 
 		System.out.println("ex3");
 		char output=0;
@@ -85,7 +110,14 @@ class ForTest3_part2
 		}
 		System.out.println("----------------------\n");
 
-
+		/*
+		(ex4)
+		*****
+		 ****
+		  ***
+		   **
+			*
+		*/
 		System.out.println("ex4");
 		int count_exe=0;
 		for(int i =0; i<=4 ; i++)
@@ -102,7 +134,14 @@ class ForTest3_part2
 		}
 		System.out.println("----------------------\n");
 
-
+		/*
+		(ex5)
+			  *
+			 ***	
+			*****
+		   *******
+		  *********	
+		*/
 		System.out.println("ex5");
 		for(int line_x =0; line_x<=3 ; line_x++)
 		{
@@ -122,6 +161,14 @@ class ForTest3_part2
 		System.out.println("----------------------\n");
 
 
+		/*
+		(ex6)
+			 *
+			***
+		   *****
+			***
+             *
+		*/
 		System.out.println("ex6");
 		//파트1_별이 1->5까지 증가하는 부분.
 		for(int line_x =0; line_x<=2 ; line_x++)
@@ -154,7 +201,6 @@ class ForTest3_part2
 			}
 			System.out.println("");
 		}
-
 
 	}//main end
 }//class end
