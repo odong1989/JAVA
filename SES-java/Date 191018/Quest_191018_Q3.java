@@ -9,15 +9,16 @@ import java.util.Scanner;
 정수입력 : 5
 5! = 120
 */
-
 //현황 : 20이후부터 입력하면 계산이 0 나오는 에러들이 발생된다.
+//선생님 말씀 : 15만 넘어가려해도 int형이 감당하기 힘들며
+//	 	     더블형을 쓸수 있는지 확인할려고 일부러 이렇게 하셨다고.
 
 class Quest_191018_Q3
 {
 	public static void main(String[] args) 
 	{
-		int number=0;
-		int factorial=1;
+		double number=0;
+		double factorial=1;
 		Scanner input = new Scanner(System.in);
 
 
@@ -26,7 +27,7 @@ class Quest_191018_Q3
 		number = input.nextInt();
 
 		do{
-			if(number < 0 || number> 100)
+			if(number <= 0 || number> 100)
 			{
 				System.out.println("1~100이내의 숫자만 입력해주세요");
 			}
