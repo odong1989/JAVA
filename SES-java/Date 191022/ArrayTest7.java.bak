@@ -1,0 +1,37 @@
+class ArrayTest7
+{
+	public static void main(String[] args) 
+	{
+		double a[];
+		a=new double[5];
+		a[0]=35.1;
+		a[1]=24.2;
+		a[2]=33.3;
+		a[3]=49.4;
+		a[4]=55.5;
+
+
+
+
+
+
+
+
+		/*
+		double weight[] = {35.1, 24.2, 33.3 , 49.4, 55.5};
+
+		double temp;
+		for(int i=0; i<weight.length;i++)
+		{
+
+			for(int j=0; j<weight.length ; j++)
+			{
+				if(weight[i]>weight[j])
+				temp = weight[j];
+				weight[j]=weight[i];
+				weight[i]=temp;
+			}
+		}
+		*/
+	}
+}
