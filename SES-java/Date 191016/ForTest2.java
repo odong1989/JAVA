@@ -90,9 +90,9 @@ class ForTest2
 		sum=0;
 		int i_out=1;
 		for(; sum<=4000 ; i_out++){
-			sum=sum+i;
+			sum=sum+i_out;
 		}
-		System.out.println("1~" + i +"까지의 합계 : " + sum);
+		System.out.println("1~" + i_out +"까지의 합계 : " + sum);
 		//일단 무조건 실행시키고 보자! 같은 경우에는 while문이 더 많이 쓰인다고 합니다.
 		/*☆☆☆☆☆
 		  내가 파악한 선생님의 for반복문 코딩을 보면

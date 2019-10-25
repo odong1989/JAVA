@@ -16,7 +16,7 @@ class ArrayTest8
 
 	public static void main(String[] args) 
 	{
-		final int year= 2020;	
+		final int year= 2000;	
 		int days[] ={31,28,31,30,31,30,31,31,30,31,30,31}; //각 월별마다 날짜수
 
 		int day_total=0;
@@ -36,13 +36,14 @@ class ArrayTest8
 		(기본설정 28일/윤년 아닐경우를 기준으로 함)
 		*/
 
-		if(year%4==0){
-			if(year%100!=0 || year%400==0)
+		if(year%4==0){ //4년마다를 1차 조건으로 보고 구분실시.
+			if(year%100!=0 && year%400==0)//100년마다떨어지는 
 			{
-				System.out.printf("%d년은 윤년입니다.(2월은 28일 적용)\n",year);
+				System.out.printf("%d년은 윤년입니다.(2월은 29일 적용)\n",year);
 				days[1]=29;
 				System.out.println("2월 : " +days[1]);
 			}
+			else System.out.printf("%d년은 윤년이 아닙니다.(2월은 28일 적용)\n",year);
 		}
 		else System.out.printf("%d년은 윤년이 아닙니다.(2월은 28일 적용)\n",year);
 

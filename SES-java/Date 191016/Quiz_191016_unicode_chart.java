@@ -12,14 +12,16 @@ class Quiz_191016_unicode_chart
 	{
 
 		//나의 방식
+		System.out.println("나의 방식대로 출력해본 경우(개행없음)");
 		for(char count=22; count<=122; count++)
 		{
 			//if
 			System.out.print((int)count + " : ");//	
-			System.out.println(count);//
+			System.out.println(count);// 
 		}
 
 		//선생님 방식 - 할일을 여러개 시키는 경우 예제(#추천하지는 않는 방식)
+		System.out.println("선생님의 출력해본 경우(추천않는방식이다. 여러가지 일을 시키니)");
 		for (int ch=22; ch<=122 ; ch++)
 		{
 			System.out.print(ch + " : " + (char)ch + "\t");
@@ -33,7 +35,9 @@ class Quiz_191016_unicode_chart
 			//여기서 에러발생 또는 수정의 시간이 늘어나기 쉽습니다.
 		}
 
-		//선생님 방식 - 할일을 여러개 시키는 경우 예제(#추천하지는 않는 방식)
+
+		//선생님 방식2 변수들의 역할을 1변수당 1개의 임무만 맡기는 방식
+		System.out.println("선생님의 출력해본 경우(변수들의 역할을 1변수당 1개의 임무만 맡기는 방식)");
 		int cnt = 0 ;
 		for (int ch=22; ch<=122 ; ch++)
 		{

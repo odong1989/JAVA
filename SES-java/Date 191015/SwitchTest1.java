@@ -1,6 +1,12 @@
 import java.util.Scanner;
 
-//배열을 배우면 스위치문을 일일이 쓰지 않아도 됩니다.
+/*
+	문제 : 출생년도를 입력하면 그에 따라 12띠를 출력합니다.
+	조건	: switch문을 활용합니다.
+
+*/
+//[여담]배열을 배우면 스위치문을 일일이 쓰지 않아도 됩니다.
+
 class SwitchTest1
 {
 	public static void main(String[] args) 
@@ -57,7 +63,5 @@ class SwitchTest1
 		case 2 : System.out.println("개띠입니다."); break;
 		}
 		
-
-	
 	}
 }
