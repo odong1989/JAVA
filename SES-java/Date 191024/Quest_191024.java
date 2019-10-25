@@ -24,11 +24,24 @@ class Quest_191024
 └───────┴───────┴───────┘
 */
 
+/*
+		//반복문 구성위한 구성분석.
+		char ch1='1';
+		System.out.print("┌───────┬───────┬───────┐\n");	//맨위라인(바로출력)
+		System.out.print("│   ");							//1,4,7
+		System.out.print("   │   ");						//1~2,2~3,4~5,5~6,7~8,8~9	
+		System.out.print("   │");							//3,6,9		
+		System.out.print("├───────┼───────┼───────┤");		//3우측 출력후, 6우측 출력후,9우측 출력후		
+		System.out.print("└───────┴───────┴───────┘");		//9우측까지 출력후		
+		System.out.print("");				
+		System.out.print("");		
+*/
 	public static void main(String[] args) 
 	{
 		char ch='1';
 
-		for (int i=0; i<4; i++)
+		
+		for (int i=0; i<3; i++)//가로라인(숫자출력않는 부분만) 출력
 		{
 			switch (i)
 			{
@@ -38,14 +51,12 @@ class Quest_191024
 				     break;
 			case 2 : System.out.print("├───────┼───────┼───────┤\n");		//3우측 출력후, 6우측 출력후,9우측 출력후		
 					 break;
-			case 3:  System.out.print("└───────┴───────┴───────┘\n");		//9우측까지 출력후		
-				     break;
 			default : System.out.print("정의되지않은 에러가 발생되었습니다.\n");
 					  break;
 			}
 			
-
-			for(int j=0; j<7 ;j++)//내부의 숫자와 |자형 칸막이 생성 
+						
+			for(int j=0; j<7 ;j++)// 촘ㄱ와 |자형 칸막이 생성 
 			{
 
 				if(j%2==1)
@@ -64,32 +75,12 @@ class Quest_191024
 						 break;
 				case 6:  System.out.print("   │\n");			//3,6,9의 우측 벽		
 						 break;
-//				default : System.out.printf("%s",ch);
-//						  ch++;
-//						  break;
-
-//				default : System.out.print("미정의 에러");
-//						  break;
+				default : System.out.print("");
+						  break;
 				}
-
-
 			}
-	
 		}
-
-		/*
-		char ch1='1';
-		System.out.print("┌───────┬───────┬───────┐\n");	//맨위라인(바로출력)
-		System.out.print("│   ");							//1,4,7
-		System.out.print("   │   ");						//1~2,2~3,4~5,5~6,7~8,8~9	
-		System.out.print("   │");							//3,6,9		
-		System.out.print("├───────┼───────┼───────┤");		//3우측 출력후, 6우측 출력후,9우측 출력후		
-		System.out.print("└───────┴───────┴───────┘");		//9우측까지 출력후		
-		System.out.print("");				
-		System.out.print("");		
-		*/
-		
-		
+		System.out.print("└───────┴───────┴───────┘\n");		//9우측까지 출력후		
 
 	}
 }
