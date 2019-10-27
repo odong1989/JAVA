@@ -47,8 +47,9 @@ class PJ_BingoGame
 		
 		Scanner input = new Scanner(System.in);		//3
 		int inputValue=Integer.MIN_VALUE;
-		int player[]={0,0};	//1
-		int flagTurn=0;	//0: 플레이어1차례, 1: 플레이어2차례
+		int player1=0;	//1
+		int player2[]={0};	//2
+		int flagTurn=1;	//1: 플레이어1차례, 2: 플레이어2차례
 		//변수선언종료--------------------------------------------------
 		
 
@@ -61,15 +62,20 @@ class PJ_BingoGame
 			DrawSquare(field); //빙고게임 필드 3*3 및 숫자 배치출력
 
 			//step0.플레이어 선택- 아직 미구현상태입니다.-----------------------------------------
-			System.out.println("flagTurn : "+flagTurn );
-			System.out.printf("플레이어 %d의 차례입니다.",flagTurn);
+			/*
+			if(turnCount%2==1)
+			{
+			System.out.printf(field[0]);
+			} 	
+			*/
 			//step0.플레이어 선택- 아직 미구현상태입니다.-----------------------------------------
 
 
 			//step1.플레이어의 값입력--------------------------------------------------------
+			System.out.printf("플레이어__의 차례입니다.");				
 			System.out.print("선택할 값을 입력하세요 : ");				
 			inputValue=input.nextInt();
-			//player1+=inputValue; //test용 / step2의 입력값 구현완료시 삭제할 것.
+			player1+=inputValue;
 
 			//step1.플레이어의 값입력--------------------------------------------------------
 
@@ -77,27 +83,22 @@ class PJ_BingoGame
 
 			//step2.플레이어의 입력값 선택중복(중복입력) 체크---------------------------------------
 			//		중복이 확인될경우 해당차수-처리하여 다시 입력받을 수 있도록 할것.			
-			if(field[inputValue-1] == "X" || field[inputValue-1] == "O")
-			{
-				System.out.println("이미 선택된 값입니다. 다시 선택해주세요.");
-				System.out.println("flagTurn : "+flagTurn );
-				continue;
-			}	
-			//step2.플레이어의 입력값 선택중복(중복입력) 체크 종료---------------------------------------
-			//[신규!]step4.선택된 숫자는 O/X으로 표기하기 시작--------------------------------------------
-			else	
-			{
-				field[inputValue-1]="X";			
-			}
+			//		아직 미구현입니다.
 
-			//[신규!]step4.선택된 숫자는 O/X으로 표기하기 종료--------------------------------------------
+			//step2.플레이어의 입력값 선택중복(중복입력) 체크---------------------------------------
+
+
+			//[신규!]step4.선택된 숫자는 O/X으로 표기하기--------------------------------------------
+			field[inputValue-1]="X";	
+
+			//[신규!]step4.선택된 숫자는 O/X으로 표기하기--------------------------------------------
 
 
 			//step3.플레이어의 승리여부 확인---------------------------------------------------
 			//		승리조건이 되는 victoryCondition배열의 값과 동일한 경우 승리로 판정한다.
 				for(int victoryCheck=0; victoryCheck < victoryCondition.length; victoryCheck++)
 				{
-					if(player[flagTurn] == victoryCondition[victoryCheck])
+					if(player1 == victoryCondition[victoryCheck])
 					{
 						DrawSquare(field); //빙고게임 필드 3*3 및 숫자 배치출력
 						System.out.println("플레이어1이/가 승리하였습니다.");
@@ -106,16 +107,16 @@ class PJ_BingoGame
 					}
 				}
 			//step3.플레이어의 승리여부 확인 종료---------------------------------------------------
+			
+
+
+
 		}//빙고게임 시작 for end
-			System.out.println("flagTurn : "+flagTurn );
-			
-			
+
 	}//main method end
 
 	
-
-//Method-DrawSquare======================================================================================================
-
+	
 	public static void DrawSquare(String[] field) 
 	{
 		int arraySellector=0;//사각형 생성 반복문으로는 적절한 숫자 생성을 할 수 없다.		
@@ -161,8 +162,5 @@ class PJ_BingoGame
 		}
 		System.out.print("└───────┴───────┴───────┘\n");		//9우측까지 출력후		
 	}// DrowSquare() method END
-
-//Method-DrawSquare======================================================================================================
-
 
 }//class class PJ_BingoGame END
