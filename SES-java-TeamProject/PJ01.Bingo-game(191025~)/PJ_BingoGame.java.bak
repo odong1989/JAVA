@@ -48,7 +48,7 @@ class PJ_BingoGame
 		Scanner input = new Scanner(System.in);		//3
 		int inputValue=Integer.MIN_VALUE;
 		int player[]={0,0};	//1
-		int flagTurn=0;	//0: 플레이어1차례, 1: 플레이어2차례
+		int flagTurn=0;	//0: 플레이어1(X)차례, 1: 플레이어2차례(O)
 		//변수선언종료--------------------------------------------------
 		
 
@@ -59,14 +59,11 @@ class PJ_BingoGame
 		for (int turnCount=1 ; turnCount <= gameLimit ; turnCount++)
 		{
 			DrawSquare(field); //빙고게임 필드 3*3 및 숫자 배치출력
+			
 
-			//step0.플레이어 선택- 아직 미구현상태입니다.-----------------------------------------
-			System.out.println("flagTurn : "+flagTurn );
-			if(flagTurn%2==1)
-			{
-			System.out.printf("플레이어 %d의 차례입니다.",flagTurn);
-			} 	
-			//step0.플레이어 선택- 아직 미구현상태입니다.-----------------------------------------
+			//step0.플레이어 선택------------------------------------------
+			System.out.printf("플레이어 %d의 차례입니다.",flagTurn+1);
+			//step0.플레이어 선택------------------------------------------
 
 
 			//step1.플레이어의 값입력--------------------------------------------------------
@@ -83,17 +80,26 @@ class PJ_BingoGame
 			if(field[inputValue-1] == "X" || field[inputValue-1] == "O")
 			{
 				System.out.println("이미 선택된 값입니다. 다시 선택해주세요.");
-				System.out.println("flagTurn : "+flagTurn );
 				continue;
 			}	
 			//step2.플레이어의 입력값 선택중복(중복입력) 체크 종료---------------------------------------
+		
 			//[신규!]step4.선택된 숫자는 O/X으로 표기하기 시작--------------------------------------------
-			else	
+			switch (flagTurn)
 			{
-				field[inputValue-1]="X";			
+			case 0 : field[inputValue-1]="X";			
+					 player[flagTurn]=inputValue;
+	  				 System.out.printf("<확인용>플레이어%d의 보유값 : %d\n",flagTurn+1,player[flagTurn]);
+					 break;
+			case 1 : field[inputValue-1]="O";			
+					 player[flagTurn]=inputValue;
+	  				 System.out.printf("<확인용>플레이어%d의 보유값 : %d\n",flagTurn+1,player[flagTurn]);
+					 break;
+			default : System.out.println("예상외의 에러발생입니다.");
+					 break;
 			}
-
 			//[신규!]step4.선택된 숫자는 O/X으로 표기하기 종료--------------------------------------------
+
 
 
 			//step3.플레이어의 승리여부 확인---------------------------------------------------
@@ -103,15 +109,20 @@ class PJ_BingoGame
 					if(player[flagTurn] == victoryCondition[victoryCheck])
 					{
 						DrawSquare(field); //빙고게임 필드 3*3 및 숫자 배치출력
-						System.out.println("플레이어1이/가 승리하였습니다.");
+						System.out.printf("플레이어 %d이/가 승리하였습니다.",flagTurn+1);
 						System.out.println("게임을 종료합니다.");
 						return;
 					}
-				}
+				}//승리확인 for 종료
+
+				flagTurn=(flagTurn+1)%2; //증감후 나머지 연산하여 0,1으로 플레이어턴 결정
+
 			//step3.플레이어의 승리여부 확인 종료---------------------------------------------------
+		
 		}//빙고게임 시작 for end
-		flagTurn++; //모든 과정이 정상적으로 진행되면 상대방에게 턴을 넘겨주도록 FLAG값을 증가.
-		System.out.println("flagTurn : "+flagTurn );
+
+			
+			
 	}//main method end
 
 	
