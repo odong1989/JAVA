@@ -42,13 +42,26 @@ class PJ_BingoGame
 		//[1]변수선언시작-------------------------------------------------
 		String field[]={"1","2","3","4","5","6","7","8","9"};			//5
 		int gameLimit=field.length;					//4	
-		int victoryCondition[]={6,12,15,18,24};		//6
+		int[][] victoryCondition={{1,2,3},
+						  	 	  {4,5,6},
+						  	 	  {7,8,9},
+						  	 	  {1,4,7},
+						  	 	  {2,5,8},
+						  	 	  {3,6,9},
+						  	 	  {1,5,9},
+						  	 	  {3,5,7} }; 
+								  //6
 
 		
 		Scanner input = new Scanner(System.in);		//3
 		int inputValue=Integer.MIN_VALUE;
-		int player[]={0,0};	//1
+		int[] player1={0,0,0};	//1
+		int[] player2={0,0,0};	//1
+		int turnplayer1=0;
+		int turnplayer2=0;
 		int flagTurn=0;	//0: 플레이어1(X)차례, 1: 플레이어2차례(O)
+		boolean[] winFlag1={false,false,false};
+		boolean[] winFlag2={false,false,false};
 		//[1]변수선언종료--------------------------------------------------
 		
 
@@ -63,8 +76,9 @@ class PJ_BingoGame
 
 			//step0.플레이어 선택------------------------------------------
 			System.out.printf("턴 : %d \n",turnCount);
-			System.out.printf("플레이어 %d의 차례입니다.",flagTurn+1);
-
+			System.out.printf("플레이어 %d의 차례입니다.\n",flagTurn+1);
+			System.out.printf("player1 : %d, %d %d\n",player1[0],player1[1],player1[2]);
+			System.out.printf("player2 : %d, %d %d\n",player2[0],player2[1],player2[2]);
 			//step0.플레이어 선택------------------------------------------
 
 
@@ -91,13 +105,23 @@ class PJ_BingoGame
 			{
 			switch (flagTurn)
 			{
-			case 0 : field[inputValue-1]="X";			
-					 player[flagTurn]+=inputValue;
-	  				 System.out.printf("<확인용>플레이어%d의 보유값 : %d\n",flagTurn+1,player[flagTurn]);
+			case 0 : field[inputValue-1]="X";
+					 player1[0]=inputValue;
+//					 turnplayer1++;
+				     System.out.println("turnplayer1 : "+turnplayer1);
+			     	 System.out.printf("player1 : %d, %d %d\n",player1[0],player1[1],player1[2]);
+
+					 BubbleSortFlag(player1);
+//	  				 System.out.printf("<확인용>플레이어%d의 보유값 : %d\n",flagTurn+1,player[flagTurn]);//개발자확인용코드입니다. 완료시 삭제해주세요.
 					 break;
-			case 1 : field[inputValue-1]="O";			
-					 player[flagTurn]+=inputValue;
-	  				 System.out.printf("<확인용>플레이어%d의 보유값 : %d\n",flagTurn+1,player[flagTurn]);
+			case 1 : field[inputValue-1]="O";
+					 player2[0]=inputValue;
+//					 turnplayer2++;
+					 System.out.println("turnplayer2 : "+turnplayer2);
+			         System.out.printf("player2 : %d, %d %d\n",player2[0],player2[1],player2[2]);
+
+					 BubbleSortFlag(player2);
+//	  				 System.out.printf("<확인용>플레이어%d의 보유값 : %d\n",flagTurn+1,player[flagTurn]);//개발자확인용코드입니다. 완료시 삭제해주세요.
 					 break;
 			default : System.out.println("예상외의 에러발생입니다.");
 					 break;
@@ -109,15 +133,57 @@ class PJ_BingoGame
 
 			//step3.플레이어의 승리여부 확인---------------------------------------------------
 			//		승리조건이 되는 victoryCondition배열의 값과 동일한 경우 승리로 판정한다.
-				for(int victoryCheck=0; victoryCheck < victoryCondition.length; victoryCheck++)
+
+				for(int victoryCheckRow=0; victoryCheckRow < victoryCondition.length; victoryCheckRow++)
 				{
-					if(player[flagTurn] == victoryCondition[victoryCheck])
+					for(int victoryCheckCell=0 ; victoryCheckCell<victoryCondition[victoryCheckRow].length ; victoryCheckCell++)
+					{
+						if(player1[victoryCheckCell] == victoryCondition[victoryCheckRow][victoryCheckCell])
+						{
+						  winFlag1[victoryCheckCell]=true;
+						}
+
+						if(player2[victoryCheckCell] == victoryCondition[victoryCheckRow][victoryCheckCell])
+						{
+						  winFlag2[victoryCheckCell]=true;
+						}
+					}	
+					
+					if(winFlag1[0]==true & winFlag1[1]==true & winFlag1[2]==true)	
+					{
+						System.out.printf("플레이어 1이 승리하였습니다.");						
+						System.out.println("게임을 종료합니다.");
+						return;
+					}
+					else {winFlag1[0]=false;winFlag1[1]=false;winFlag1[2]=false;}
+
+
+					if(winFlag2[0]==true & winFlag2[1L]==true & winFlag2[2]==true)	
+					{
+						System.out.printf("플레이어 2이 승리하였습니다.");						
+						System.out.println("게임을 종료합니다.");
+						return;
+					} 
+					else {winFlag2[0]=false;winFlag2[1]=false;winFlag2[2]=false;}
+
+					//		boolean[] winFlag={false,false,false}; 의 승리조건을 체크하는 코딩고민중.
+					//for()
+
+					/*기존조건 삭제예정.
+					if(player1[] == victoryCondition[victoryCheck])
 					{
 						DrawSquare(field); //빙고게임 필드 3*3 및 숫자 배치출력
 						System.out.printf("플레이어 %d이/가 승리하였습니다.",flagTurn+1);
 						System.out.println("게임을 종료합니다.");
 						return;
 					}
+					else(player2[] == victoryCondition[victoryCheck])
+					{
+						DrawSquare(field); //빙고게임 필드 3*3 및 숫자 배치출력
+						System.out.printf("플레이어 %d이/가 승리하였습니다.",flagTurn+1);
+						System.out.println("게임을 종료합니다.");
+						return;
+					}*/
 				}//승리확인 for 종료
 
 				flagTurn=(flagTurn+1)%2; //증감후 나머지 연산하여 0,1으로 플레이어턴 결정
@@ -183,7 +249,76 @@ class PJ_BingoGame
 		System.out.print("└───────┴───────┴───────┘\n");		//9우측까지 출력후		
 	}// DrowSquare() method END
 
-//Method-DrawSquare======================================================================================================
+
+
+
+//Method-BubbleSort======================================================================================================
+//BubbleSort : 버블정렬
+//boolean형 Flag를 추가하여 
+//정렬을 할 필요가 없다고 판단될 경우 임의종료(break)를 할 수 있도록 수정하였다.
+	
+	public static void BubbleSortFlag(int[] player) 
+	{
+		//변수등 선언
+		int temp=0;
+		boolean flag;
+			
+
+		//현재 상태 출력
+/*		for (int print=0; print <player.length; print++)
+		{
+			System.out.println("player"+print+": " + player[print]);
+		}		
+			System.out.println("");
+*/
+		//값 교환
+
+		//Benchmark : 기준점
+		for (int Benchmark=player.length; Benchmark > 0 ; Benchmark-- )
+		{
+			//Comparison : 비교점, 기준점과 비교를 위해 기준점이외의 나머지 배열들을 선택.
+//			System.out.println("Benchmark : "+Benchmark);
+			flag=true; //지나갔나 안지나갔나 확인용.
+
+			for (int Comparison=0 ; Comparison <Benchmark-1; Comparison++)
+			{
+				if(player[Comparison] > player[Comparison+1])
+				{
+					temp=player[Comparison];
+					player[Comparison]=player[Comparison+1];
+					player[Comparison+1]=temp;
+					flag=false; //지나갔나 안지나갔나 확인용.
+/*
+					//개인적으로 변경과정을 확인위한 중간체크용 출력반복문입니다.(진행에 영향없음)-----------------------------------
+					for (int print=0; print <player.length; print++)
+					{		
+						System.out.print(player[print]+" ");
+					}		
+					System.out.println("");
+					//개인적으로 변경과정을 확인위한 중간체크용 출력반복문입니다.(진행에 영향없음)-----------------------------------
+*/
+				}//if end
+			}//Comparison end 
+			//flag가 true이면 더이상 정렬을 할 필요가 없으니 이만 종료한다.
+			//flag가 flase이면 아직은 정렬을 해야 한다는 의미이니 계속진행하라를 결정한다.
+			if(flag) break;
+
+			
+			
+
+			System.out.println("");
+		}//interchangeSort end
+
+		//변경된 상태 출력
+		for (int print=0; print <player.length; print++)
+		{
+			System.out.print(player[print]+",");
+		}		
+		System.out.println("");
+	}//BubbleSortFlag END
+
+
+
 
 
 }//class class PJ_BingoGame END
