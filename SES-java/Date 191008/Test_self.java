@@ -3,6 +3,8 @@ class Test_self
 	public static void main(String[] args) 
 	{
 		System.out.println("Hello World!");
-		System.out.println("±äÀåµÇ³×");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½Ç³ï¿½");
+		System.out.println("msì½”ë“œì—ì„œ ì‘ì„±");
 	}
+
 }
