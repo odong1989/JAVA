@@ -55,13 +55,13 @@ class PJ_BingoGame
 		
 		Scanner input = new Scanner(System.in);		//3
 		int inputValue=Integer.MIN_VALUE;
-		int[] player1={0,0,0};	//1
-		int[] player2={0,0,0};	//1
+		int[] player1={0,0,0,0};	//1
+		int[] player2={0,0,0,0};	//1
 		int turnplayer1=0;
 		int turnplayer2=0;
 		int flagTurn=0;	//0: 플레이어1(X)차례, 1: 플레이어2차례(O)
-		boolean[] winFlag1={false,false,false};
-		boolean[] winFlag2={false,false,false};
+		int winFlag1=0;
+		boolean[] winFlag2={false,false,false,false};
 		//[1]변수선언종료--------------------------------------------------
 		
 
@@ -77,8 +77,8 @@ class PJ_BingoGame
 			//step0.플레이어 선택------------------------------------------
 			System.out.printf("턴 : %d \n",turnCount);
 			System.out.printf("플레이어 %d의 차례입니다.\n",flagTurn+1);
-			System.out.printf("player1 : %d, %d %d\n",player1[0],player1[1],player1[2]);
-			System.out.printf("player2 : %d, %d %d\n",player2[0],player2[1],player2[2]);
+			System.out.printf("player1 : %d, %d %d %d\n",player1[0],player1[1],player1[2],player1[3]);
+			System.out.printf("player2 : %d, %d %d %d\n",player2[0],player2[1],player2[2],player2[3]);
 			//step0.플레이어 선택------------------------------------------
 
 
@@ -109,7 +109,7 @@ class PJ_BingoGame
 					 player1[0]=inputValue;
 //					 turnplayer1++;
 				     System.out.println("turnplayer1 : "+turnplayer1);
-			     	 System.out.printf("player1 : %d, %d %d\n",player1[0],player1[1],player1[2]);
+			System.out.printf("player1 : %d, %d %d %d\n",player1[0],player1[1],player1[2],player1[3]);
 
 					 BubbleSortFlag(player1);
 //	  				 System.out.printf("<확인용>플레이어%d의 보유값 : %d\n",flagTurn+1,player[flagTurn]);//개발자확인용코드입니다. 완료시 삭제해주세요.
@@ -118,7 +118,8 @@ class PJ_BingoGame
 					 player2[0]=inputValue;
 //					 turnplayer2++;
 					 System.out.println("turnplayer2 : "+turnplayer2);
-			         System.out.printf("player2 : %d, %d %d\n",player2[0],player2[1],player2[2]);
+			System.out.printf("player2 : %d, %d %d %d\n",player2[0],player2[1],player2[2],player2[3]);
+
 
 					 BubbleSortFlag(player2);
 //	  				 System.out.printf("<확인용>플레이어%d의 보유값 : %d\n",flagTurn+1,player[flagTurn]);//개발자확인용코드입니다. 완료시 삭제해주세요.
@@ -134,28 +135,31 @@ class PJ_BingoGame
 			//step3.플레이어의 승리여부 확인---------------------------------------------------
 			//		승리조건이 되는 victoryCondition배열의 값과 동일한 경우 승리로 판정한다.
 
-				for(int victoryCheckRow=0; victoryCheckRow < victoryCondition.length; victoryCheckRow++)
+				for(int CheckRow=0; CheckRow < victoryCondition.length; CheckRow++)
 				{
-					for(int victoryCheckCell=0 ; victoryCheckCell<victoryCondition[victoryCheckRow].length ; victoryCheckCell++)
+					for(int CheckCell=0 ; CheckCell <4 ; CheckCell++)
 					{
-						if(player1[victoryCheckCell] == victoryCondition[victoryCheckRow][victoryCheckCell])
+						if(player1[CheckCell] == victoryCondition[CheckRow][0] 
+						   || player1[CheckCell] == victoryCondition[CheckRow][1]
+						   || player1[CheckCell] == victoryCondition[CheckRow][2])
 						{
-						  winFlag1[victoryCheckCell]=true;
+						  winFlag1++;
 						}
 
-						if(player2[victoryCheckCell] == victoryCondition[victoryCheckRow][victoryCheckCell])
+						if(player2[CheckCell] == victoryCondition[CheckRow][CheckCell])
 						{
-						  winFlag2[victoryCheckCell]=true;
+						  winFlag2[CheckCell]=true;
 						}
 					}	
 					
-					if(winFlag1[0]==true & winFlag1[1]==true & winFlag1[2]==true)	
+					
+					if(winFlag1>=3)	
 					{
 						System.out.printf("플레이어 1이 승리하였습니다.");						
 						System.out.println("게임을 종료합니다.");
 						return;
 					}
-					else {winFlag1[0]=false;winFlag1[1]=false;winFlag1[2]=false;}
+					else winFlag1=0;
 
 
 					if(winFlag2[0]==true & winFlag2[1]==true & winFlag2[2]==true)	
