@@ -6,10 +6,10 @@
 
 2.import하는 클래스
 ①import java.util.Scanner;
-
+(이하없음)
 
 3.메소드(함수) 설명
-①void DrawSquare() : 빙고게임의 사각형 틀 및 숫자를 배치합니다.(10월24일 과제)
+①void DrawSquare() : 빙고게임의 사각형 틀 및 숫자를 배치합니다.(10월24일 과제를 참고함.)
 
 4. 변수설명(main 메소드만)
 //① int player1LineValue
@@ -39,7 +39,7 @@ class PJ_BingoGame
 {
 	public static void main(String[] args) 
 	{
-		//변수선언시작-------------------------------------------------
+		//[1]변수선언시작-------------------------------------------------
 		String field[]={"1","2","3","4","5","6","7","8","9"};			//5
 		int gameLimit=field.length;					//4	
 		int victoryCondition[]={6,12,15,18,24};		//6
@@ -49,27 +49,28 @@ class PJ_BingoGame
 		int inputValue=Integer.MIN_VALUE;
 		int player[]={0,0};	//1
 		int flagTurn=0;	//0: 플레이어1(X)차례, 1: 플레이어2차례(O)
-		//변수선언종료--------------------------------------------------
+		//[1]변수선언종료--------------------------------------------------
 		
 
 
 
 
-		//빙고게임 시작 for
+		//[2]빙고게임 시작 for
 		for (int turnCount=1 ; turnCount <= gameLimit ; turnCount++)
 		{
 			DrawSquare(field); //빙고게임 필드 3*3 및 숫자 배치출력
 			
 
 			//step0.플레이어 선택------------------------------------------
+			System.out.printf("턴 : %d \n",turnCount);
 			System.out.printf("플레이어 %d의 차례입니다.",flagTurn+1);
+
 			//step0.플레이어 선택------------------------------------------
 
 
 			//step1.플레이어의 값입력--------------------------------------------------------
 			System.out.print("선택할 값을 입력하세요 : ");				
 			inputValue=input.nextInt();
-			//player1+=inputValue; //test용 / step2의 입력값 구현완료시 삭제할 것.
 
 			//step1.플레이어의 값입력--------------------------------------------------------
 
@@ -80,11 +81,14 @@ class PJ_BingoGame
 			if(field[inputValue-1] == "X" || field[inputValue-1] == "O")
 			{
 				System.out.println("이미 선택된 값입니다. 다시 선택해주세요.");
+				turnCount--; //카운트 증가처리를 막음으로써 중복선택이 턴카운트되는 오류를 삭제.
 				continue;
 			}	
 			//step2.플레이어의 입력값 선택중복(중복입력) 체크 종료---------------------------------------
 		
 			//[신규!]step4.선택된 숫자는 O/X으로 표기하기 시작--------------------------------------------
+			else
+			{
 			switch (flagTurn)
 			{
 			case 0 : field[inputValue-1]="X";			
@@ -97,6 +101,7 @@ class PJ_BingoGame
 					 break;
 			default : System.out.println("예상외의 에러발생입니다.");
 					 break;
+			}
 			}
 			//[신규!]step4.선택된 숫자는 O/X으로 표기하기 종료--------------------------------------------
 
@@ -127,8 +132,11 @@ class PJ_BingoGame
 
 	
 
-//Method-DrawSquare======================================================================================================
 
+
+
+//Method-DrawSquare======================================================================================================
+//사각형과 숫자를 그리는 메소드. main메소드가 너무 복잡해져서 DrawSquare라는 별도의 메소드로 분할하였다.
 	public static void DrawSquare(String[] field) 
 	{
 		int arraySellector=0;//사각형 생성 반복문으로는 적절한 숫자 생성을 할 수 없다.		
