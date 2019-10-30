@@ -1,55 +1,60 @@
 /**
-====문서화 구간 시작==================================================================
-1.본 클래스 설명
- : 빙고게임입니다. 1개의 직선을 완성하면 승리합니다.
-   2명의 플레이어가 있습니다.
-
-2.import하는 클래스
-①import java.util.Scanner;
-(이하없음)
-
-3.메소드(함수) 설명
-메소드①DrawSquare(String[] field)   : 빙고게임의 사각형 틀 및 숫자를 배치합니다.(10월24일 과제를 참고함.)
-메소드②BubbleSortFlag(int[] player) : 사용자가 선택한 숫자들을 정렬합니다. 승리조건의 비교를 위해 진행합니다.  
-(이하없음)
-
-4. 변수설명(main 메소드만)
-변수①String field[];			   
-   : 3*3의 빙고판의 숫자(String형 자료)들을 출력합니다.
-변수②	int gameLimit=field.length;								
-   : 빙고판의 숫자만큼만 게임플레이(턴횟수)를 제한합니다.
-변수③	int[][] victoryCondition;		
-   : 승리조건의 값들을 갖는 8*1의 배열입니다.(3*3빙고판 기준)
-변수④	Scanner input = new Scanner(System.in);
-   : 사용자의 입력값을 받습니다.
-변수⑤	int inputValue=Integer.MIN_VALUE;					 
-   : Scanner형 변수(변수④ Scanner input)
-     가 받은 값을 저장합니다.
-변수⑥	int[] player1={0,0,0,0};							 
-변수⑦	int[] player2={0,0,0,0};						 	 
-   : 플레이어 1,플레이어 2 입력값을 받고 저장합니다.    
-   입력된 값들은 버블정렬메소드를 통해 값이 정렬됩니다.
-   값이 정렬되어야 승리조건과의 비교가 가능합니다.
-변수⑧	int turnplayer1=0;
-변수⑨	int turnplayer2=0;
-  : 플레이어 1이 선택해온 입력값(변수⑥	int[] player1)이
-    승리조건(변수③	int[][] victoryCondition)에 부합하는지 값을 확인합니다.
-	(3*3빙고 게임기준) 
-변수⑩	int flagTurn=0;			 
-   : 어느 플레이어의 차례인지를 결정합니다.
-	 값이 0: 플레이어1의 차례입니다. 
-	 값이 1: 플레이어2의 차례입니다.
-변수⑪	int winFlag1=0;										 
-변수⑫	int winFlag2=0;		
-  : 플레이어들의 승리조건을 체크하기위한 변수입니다.
-    boolean조건문의 결과에 따라 3이상의 값을 가질경우 승리조건에 해당됩니다.
-
-====문서화 구간 종료==================================================================
+|ㅡㅡㅡ문서화 구간 시작ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ| 
+| 조   명 : 6조(김보성, 문지연, 유송화)																| 
+| 제작 기간 : 2019.10.25~2019.11.01															| 	
+| SW 소개 : 3*3 빙고게임																		| 
+|																							| 
+|																							| 
+| 1.본 클래스 설명																				| 
+|  : 빙고게임입니다. 1개의 직선을 완성하면 승리합니다.													| 
+|    2명의 플레이어가 있습니다.																	| 
+|																							| 		
+| 2.import하는 클래스																			| 
+| ①import java.util.Scanner;																| 
+| (이하없음)																					| 
+|																							| 	
+| 3.메소드(함수) 설명																			| 
+| 메소드①DrawSquare(String[] field)   : 빙고게임의 사각형 틀 및 숫자를 배치합니다.(10월24일 과제를 참고함.)	| 
+| 메소드②BubbleSortFlag(int[] player) : 사용자가 선택한 숫자들을 정렬합니다. 승리조건의 비교를 위해 진행합니다.	| 
+| (이하없음)																					| 			
+|																							| 		
+| 4. 변수설명(main 메소드만)																		| 	
+| 변수①String field[];																		| 
+|    : 3*3의 빙고판의 숫자(String형 자료)들을 출력합니다.												| 	
+| 변수②	int gameLimit=field.length;															| 
+|    : 빙고판의 숫자만큼만 게임플레이(턴횟수)를 제한합니다.												| 
+| 변수③	int[][] victoryCondition;															| 
+|    : 승리조건의 값들을 갖는 8*1의 배열입니다.(3*3빙고판 기준)											| 
+| 변수④	Scanner input = new Scanner(System.in);												| 	
+|    : 사용자의 입력값을 받습니다.																	| 
+| 변수⑤	int inputValue=Integer.MIN_VALUE;													| 
+|    : Scanner형 변수(변수④ Scanner input)														| 
+|      가 받은 값을 저장합니다.																	| 
+| 변수⑥	int[] player1={0,0,0,0};															| 
+| 변수⑦	int[] player2={0,0,0,0};						 									| 	
+|    : 플레이어 1,플레이어 2 입력값을 받고 저장합니다.													| 
+|    입력된 값들은 버블정렬메소드를 통해 값이 정렬됩니다.													| 			
+|    값이 정렬되어야 승리조건과의 비교가 가능합니다.														| 	
+| 변수⑧	int turnplayer1=0;																	| 
+| 변수⑨	int turnplayer2=0;																	| 
+|   : 플레이어 1이 선택해온 입력값(변수⑥	int[] player1)이												| 
+|     승리조건(변수③	int[][] victoryCondition)에 부합하는지 값을 확인합니다.							| 
+| 	(3*3빙고 게임기준)																			| 
+| 변수⑩	int flagTurn=0;																		| 
+|    : 어느 플레이어의 차례인지를 결정합니다.															| 		
+| 	 값이 0: 플레이어1의 차례입니다.																| 
+| 	 값이 1: 플레이어2의 차례입니다.																| 
+| 변수⑪	int winFlag1=0;																		| 
+| 변수⑫	int winFlag2=0;																		| 
+|   : 플레이어들의 승리조건을 체크하기위한 변수입니다.													| 
+|     boolean조건문의 결과에 따라 3이상의 값을 가질경우 승리조건에 해당됩니다.								| 
+|																							| 
+|ㅡㅡㅡㅡㅡ문서화 구간 종료ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 */
 
 import java.util.Scanner;
 
-class PJ_BingoGameCommentRefair
+class PJ_BingoGameFinal
 {
 	public static void main(String[] args) 
 	{
@@ -75,28 +80,35 @@ class PJ_BingoGameCommentRefair
 		int winFlag1=0;										 //변수⑪
 		int winFlag2=0;										 //변수⑫
 		//[1]변수선언종료--------------------------------------------------
-			
+		
 
-		//[2]빙고게임시작--------------------------------------------------
+
+
+
+	//[2]빙고게임시작--------------------------------------------------
 		for (int turnCount=1 ; turnCount <= gameLimit ; turnCount++)
 		{
-			//step0.플레이어 선택 시작------------------------------------------
-			DrawSquare(field); //빙고게임 필드 3*3 및 숫자 배치출력
+			drawSquare(field); //빙고게임 필드 3*3 및 숫자 배치출력
+			
+
+			//step0.플레이어 선택------------------------------------------
 			System.out.printf("턴 : %d \n",turnCount);
 			System.out.printf("플레이어 %d의 차례입니다.\n",flagTurn+1);
-			//step0.플레이어 선택 종료------------------------------------------
- 
+			//step0.플레이어 선택------------------------------------------
+
 			//관리자 Log체크용 코드------------------------------------------------------
 			//System.out.printf("player1 : %d, %d %d %d\n",player1[0],player1[1],player1[2],player1[3]);
 			//System.out.printf("player2 : %d, %d %d %d\n",player2[0],player2[1],player2[2],player2[3]);
 			//관리자 Log체크용 코드------------------------------------------------------
-		
+
+
 
 			//step1.플레이어의 값입력--------------------------------------------------------
 			System.out.print("선택할 값을 입력하세요 : ");				
 			inputValue=input.nextInt();
 			//step1.플레이어의 값입력--------------------------------------------------------
-	
+
+
 
 			//step2.플레이어의 입력값 선택중복(중복입력) 체크---------------------------------------
 			//		중복이 확인될경우 해당차수-처리하여 다시 입력받을 수 있도록 할것.			
@@ -104,33 +116,33 @@ class PJ_BingoGameCommentRefair
 			{
 				System.out.println("이미 선택된 값입니다. 다시 선택해주세요.");
 				turnCount--; //카운트 증가처리를 막음으로써 중복선택이 턴카운트되는 오류를 삭제.
-				continue;	 //이후의 실행내용들이 실행되지 않도록 통과처리.
+				continue;
 			}	
 			//step2.플레이어의 입력값 선택중복(중복입력) 체크 종료---------------------------------------
 		
-			//step3.선택된 숫자는 O/X으로 표기하기 시작--------------------------------------------
+			//[신규!]step4.선택된 숫자는 O/X으로 표기하기 시작--------------------------------------------
 			else
 			{
 				switch (flagTurn)
 				{
-				case 0 : field[inputValue-1]="X";
-						 player1[0]=inputValue;
-					     System.out.println("turnplayer1 : "+turnplayer1);
-				 		 System.out.printf("player1 : %d, %d %d %d\n",player1[0],player1[1],player1[2],player1[3]);
-						 BubbleSortFlag(player1);
-
-						 //관리자 Log체크용 코드//System.out.printf("<확인용>플레이어%d의 보유값 : %d\n",flagTurn+1,player[flagTurn]);
-						 break;
-				case 1 : field[inputValue-1]="O";
-						 player2[0]=inputValue;
-						 System.out.println("turnplayer2 : "+turnplayer2);
-						System.out.printf("player2 : %d, %d %d %d\n",player2[0],player2[1],player2[2],player2[3]);
-						 BubbleSortFlag(player2);
-
-						//관리자 Log체크용 코드 //System.out.printf("<확인용>플레이어%d의 보유값 : %d\n",flagTurn+1,player[flagTurn]);//개발자확인용코드입니다. 완료시 삭제해주세요.
-						 break;
-				default : System.out.println("예상외의 에러발생입니다.");
-						 break;
+					case 0 : field[inputValue-1]="X";
+							 player1[0]=inputValue;
+							 bubbleSortFlag(player1);
+							 //관리자 Log체크용 코드------------------------------------------------------
+							 //System.out.printf("player1 : %d, %d %d %d\n",player1[0],player1[1],player1[2],player1[3]);
+							 //System.out.printf("<확인용>플레이어%d의 보유값 : %d\n",flagTurn+1,player[flagTurn]);
+							 //관리자 Log체크용 코드------------------------------------------------------
+							 break;
+					case 1 : field[inputValue-1]="O";
+							 player2[0]=inputValue;
+							 //관리자 Log체크용 코드------------------------------------------------------
+							 //System.out.printf("player2 : %d, %d %d %d\n",player2[0],player2[1],player2[2],player2[3]);
+							 //System.out.printf("<확인용>플레이어%d의 보유값 : %d\n",flagTurn+1,player[flagTurn]);
+							 //관리자 Log체크용 코드------------------------------------------------------
+							 bubbleSortFlag(player2);
+							 break;
+					default : System.out.println("예상외의 에러발생입니다.");
+							 break;
 				}// switch end
 			}//else end
 			//step3.선택된 숫자는 O/X으로 표기하기 종료--------------------------------------------
@@ -138,62 +150,60 @@ class PJ_BingoGameCommentRefair
 
 
 			//step4.플레이어의 승리여부 확인---------------------------------------------------
-			//		승리조건이 되는 victoryCondition배열의 값이 3개 이상 동일할 경우 승리로 판정한다.
-				for(int CheckRow=0; CheckRow < victoryCondition.length; CheckRow++)
+			//		승리조건이 되는 victoryCondition배열의 값과 동일한 경우 승리로 판정한다.
+
+				for(int checkRow=0; checkRow < victoryCondition.length; checkRow++)
 				{//승리조건victoryCondition에 여러행에 걸쳐 씌여있기에 행의라인수만큼 반복한다.
-					for(int CheckCell=0 ; CheckCell <4 ; CheckCell++)
+					for(int checkCell=0 ; checkCell <4 ; checkCell++)
 					{//승리조건이 {1,2,3}처럼 선언되어있기에 각 셀의 값을 확인한다.
 						if(player1[CheckCell] == victoryCondition[CheckRow][0] 
 						   || player1[CheckCell] == victoryCondition[CheckRow][1]
-						   || player1[CheckCell] == victoryCondition[CheckRow][2]
-						   || player1[CheckCell] == victoryCondition[CheckRow][3])
+						   || player1[CheckCell] == victoryCondition[CheckRow][2])
 						{
 						  winFlag1++;
 						}
 
 						if(player2[CheckCell] == victoryCondition[CheckRow][0] 
 						   || player2[CheckCell] == victoryCondition[CheckRow][1]
-						   || player2[CheckCell] == victoryCondition[CheckRow][2]
-						   || player2[CheckCell] == victoryCondition[CheckRow][3])
+						   || player2[CheckCell] == victoryCondition[CheckRow][2])
 						{
 						  winFlag2++;
-						}
+						}					
 					}	
 					
-					if(winFlag1>=3)//3*3판에 1라인 빙고이므로 3개가 동일선상일시 승리로 판단한다.
+		
+					if(winFlag1>=3)	//3*3판에 1라인 빙고이므로 3개가 동일선상일시 승리로 판단한다.
 					{
+						drawSquare(field); //빙고게임 필드 3*3 및 숫자 배치출력
 						System.out.printf("플레이어 1이 승리하였습니다.");						
 						System.out.println("게임을 종료합니다.");
 						return;
 					}
-					else winFlag1=0; //승리조건에 부합못함을 확인했으므로 0으로 초기화.
+					else winFlag1=0;//승리조건에 부합못함을 확인했으므로 0으로 초기화.
 
-
-					if(winFlag2>=3)	//3*3판에 1라인 빙고이므로 3개가 동일선상일시 승리로 판단한다.	
+					if(winFlag2>=3)	//3*3판에 1라인 빙고이므로 3개가 동일선상일시 승리로 판단한다.
 					{
+						drawSquare(field); //빙고게임 필드 3*3 및 숫자 배치출력
 						System.out.printf("플레이어 2이 승리하였습니다.");						
 						System.out.println("게임을 종료합니다.");
 						return;
-					} 
+					}
 					else winFlag2=0;//승리조건에 부합못함을 확인했으므로 0으로 초기화.
-
-					
 				}//승리확인 for 종료
 
 				flagTurn=(flagTurn+1)%2; //증감후 나머지 연산하여 0,1으로 플레이어턴 결정
 
-			//step4.플레이어의 승리여부 확인 종료---------------------------------------------------
+			//step3.플레이어의 승리여부 확인 종료---------------------------------------------------
 		
-		}//빙고게임 for end
-	//[2]빙고게임종료--------------------------------------------------
+		}//빙고게임 시작 for end
 
+			
+			
 	}//main method end
-
-	
 
 //Method-DrawSquare======================================================================================================
 //사각형과 숫자를 그리는 메소드. main메소드가 너무 복잡해져서 DrawSquare라는 별도의 메소드로 분할하였다.
-	public static void DrawSquare(String[] field) 
+	public static void drawSquare(String[] field) 
 	{
 		//String[] field : 메인메소드에서 빙고판의 숫자(String형 문자)들을 갖고 온다.
 		int arraySellector=0;//사각형 생성 반복문으로는 적절한 숫자 생성을 할 수 없다.		
@@ -251,7 +261,7 @@ class PJ_BingoGameCommentRefair
 //boolean형 Flag를 추가하여 
 //정렬을 할 필요가 없다고 판단될 경우 임의종료(break)를 할 수 있도록 수정하였다.
 	
-	public static void BubbleSortFlag(int[] player) 
+	public static void bubbleSortFlag(int[] player) 
 	{
 		int temp=0;	  //배열의 값 이동을 바꾸기 위해 임시 저장하는 변수.		
 		boolean flag; //정렬을 하는 중에 일정기간 정렬이 발생않을 경우 

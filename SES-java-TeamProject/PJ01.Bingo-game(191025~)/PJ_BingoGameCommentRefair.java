@@ -85,7 +85,7 @@ class PJ_BingoGameCommentRefair
 			System.out.printf("턴 : %d \n",turnCount);
 			System.out.printf("플레이어 %d의 차례입니다.\n",flagTurn+1);
 			//step0.플레이어 선택 종료------------------------------------------
-
+ 
 			//관리자 Log체크용 코드------------------------------------------------------
 			//System.out.printf("player1 : %d, %d %d %d\n",player1[0],player1[1],player1[2],player1[3]);
 			//System.out.printf("player2 : %d, %d %d %d\n",player2[0],player2[1],player2[2],player2[3]);
@@ -145,16 +145,14 @@ class PJ_BingoGameCommentRefair
 					{//승리조건이 {1,2,3}처럼 선언되어있기에 각 셀의 값을 확인한다.
 						if(player1[CheckCell] == victoryCondition[CheckRow][0] 
 						   || player1[CheckCell] == victoryCondition[CheckRow][1]
-						   || player1[CheckCell] == victoryCondition[CheckRow][2]
-						   || player1[CheckCell] == victoryCondition[CheckRow][3])
+						   || player1[CheckCell] == victoryCondition[CheckRow][2])
 						{
 						  winFlag1++;
 						}
 
 						if(player2[CheckCell] == victoryCondition[CheckRow][0] 
 						   || player2[CheckCell] == victoryCondition[CheckRow][1]
-						   || player2[CheckCell] == victoryCondition[CheckRow][2]
-						   || player2[CheckCell] == victoryCondition[CheckRow][3])
+						   || player2[CheckCell] == victoryCondition[CheckRow][2])
 						{
 						  winFlag2++;
 						}

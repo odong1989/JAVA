@@ -145,11 +145,12 @@ class PJ_BingoGame
 						{
 						  winFlag1++;
 						}
-
+						/*
 						if(player2[CheckCell] == victoryCondition[CheckRow][CheckCell])
 						{
 						  winFlag2[CheckCell]=true;
 						}
+						*/
 					}	
 					
 					

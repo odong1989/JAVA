@@ -65,7 +65,7 @@ class APItest3Calendar
 		System.out.println(c.get(Calendar.MONTH));
 		System.out.println(c.get(Calendar.DAY_OF_MONTH));
 		//System.out.println(c.get(Calendar.Date));
-		//System.out.println(c.get(Calendar.DAY_OF_WEEK));//Calendar.Date()써도 된다고 하심.
+		System.out.println(c.get(Calendar.DAY_OF_WEEK));//Calendar.Date()써도 된다고 하심.
 		System.out.println(c.get(Calendar.AM_PM));
 		System.out.println(c.get(Calendar.HOUR));
 		System.out.println(c.get(Calendar.MINUTE));
@@ -77,12 +77,25 @@ class APItest3Calendar
 
 		System.out.printf("오늘은 %d년 %d월 %d일 %s %s %d시 %d분 입니다.\n",
 						    c.get(Calendar.YEAR),
-							c.get(Calendar.MONTH),
+							c.get(Calendar.MONTH)+1,
 							c.get(Calendar.DAY_OF_MONTH),
 							day[c.get(Calendar.DAY_OF_WEEK)],
 							AMPM[c.get(Calendar.AM_PM)],
 							c.get(Calendar.HOUR),
 							c.get(Calendar.MINUTE));
+
+		int[] calendar = { c.get(Calendar.YEAR),
+							c.get(Calendar.MONTH)+1,
+							c.get(Calendar.DAY_OF_MONTH),
+							c.get(Calendar.DAY_OF_WEEK),
+							c.get(Calendar.AM_PM),
+							c.get(Calendar.HOUR),
+							c.get(Calendar.MINUTE)};
+		 
+
+		System.out.printf("오늘은 %d년 %d월 %d일 %s %s %d시 %d분 입니다.\n",
+							calendar[0], calendar[1], calendar[2]
+
 
 	}
 }

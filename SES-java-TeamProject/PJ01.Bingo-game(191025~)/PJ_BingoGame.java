@@ -61,7 +61,7 @@ class PJ_BingoGame
 		int turnplayer2=0;
 		int flagTurn=0;	//0: 플레이어1(X)차례, 1: 플레이어2차례(O)
 		int winFlag1=0;
-		boolean[] winFlag2={false,false,false,false};
+		int winFlag2=0;
 		//[1]변수선언종료--------------------------------------------------
 		
 
@@ -145,17 +145,20 @@ class PJ_BingoGame
 						{
 						  winFlag1++;
 						}
-						/*
-						if(player2[CheckCell] == victoryCondition[CheckRow][CheckCell])
+
+						if(player2[CheckCell] == victoryCondition[CheckRow][0] 
+						   || player2[CheckCell] == victoryCondition[CheckRow][1]
+						   || player2[CheckCell] == victoryCondition[CheckRow][2])
 						{
-						  winFlag2[CheckCell]=true;
-						}
-						*/
+						  winFlag2++;
+						}					
+					
 					}	
 					
 					
 					if(winFlag1>=3)	
 					{
+						DrawSquare(field); //빙고게임 필드 3*3 및 숫자 배치출력
 						System.out.printf("플레이어 1이 승리하였습니다.");						
 						System.out.println("게임을 종료합니다.");
 						return;
@@ -163,13 +166,15 @@ class PJ_BingoGame
 					else winFlag1=0;
 
 
-					if(winFlag2[0]==true & winFlag2[1]==true & winFlag2[2]==true)	
+					if(winFlag2>=3)	
 					{
+						DrawSquare(field); //빙고게임 필드 3*3 및 숫자 배치출력
 						System.out.printf("플레이어 2이 승리하였습니다.");						
 						System.out.println("게임을 종료합니다.");
 						return;
-					} 
-					else {winFlag2[0]=false;winFlag2[1]=false;winFlag2[2]=false;}
+					}
+					else winFlag2=0;
+
 
 					//		boolean[] winFlag={false,false,false}; 의 승리조건을 체크하는 코딩고민중.
 					//for()
