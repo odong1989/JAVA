@@ -15,24 +15,23 @@ class StudentTestVer2Capsure
 		StudentVer2Capsure s2 = new StudentVer2Capsure();
 
 		/*
+		//더 이상 사용할 수 없는 문장.
 		s.name = "홍길동";
 		s.kor = 100;
 		s.eng=90;
 		s.math = 80;
-
-		s2.name = "안숙향";
-		s2.kor = 77;
-		s2.eng=100;
-		s2.math = 86;
-
 		접근지정자가 private으로 선언되었기에 
 		테스트클래스측에서 직접 수정하는 것은 불가능합니다.
 		*/
 		
+
 		s.setKor(100);
 
 		System.out.println(s.getKor());
 
+		int total = s.getTotal();
+		System.out.println(total);
+	
 
 	}
 }

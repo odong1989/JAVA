@@ -7,12 +7,12 @@
 //같은 위치에 저장되어 있다는 것이다.
 
 
-class StudentTestVer2Capsure
+class StudentTestVer3Capsure
 {
 	public static void main(String[] args) 
 	{
-		StudentVer2Capsure s = new StudentVer2Capsure();
-		StudentVer2Capsure s2 = new StudentVer2Capsure();
+		StudentVer3Capsure s = new StudentVer3Capsure();
+		StudentVer3Capsure s2 = new StudentVer3Capsure();
 
 		/*
 		//더 이상 사용할 수 없는 문장.
@@ -25,14 +25,17 @@ class StudentTestVer2Capsure
 		*/
 		
 
-		s.setKor(100);
-		s.setEng(100);
-		s.setMat(100);
+		s.setKor(94);
+		s.setEng(65);
+		s.setMat(77);
 		System.out.println(s.getKor());
 
 		int total = s.getTotal();
 		System.out.println(total);
-	
+		double avg = s.getAvg();
+		System.out.printf("%.2f\n",avg);
+		String grade = s.getGrade();
+		System.out.printf("s학생의 등급은 \'%s\'입니다.\n",grade);
 
 	}
 }

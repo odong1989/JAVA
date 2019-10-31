@@ -22,6 +22,7 @@ class StudentVer2Capsure//설계도&속성(변수)를 설정하는 역할
 	
 
 	//캡술화step1.private로 선언하여 접근을 차단합니다. 
+	//ⓐ속성 = 변수(멤버변수, 필드)	를 선언합니다.
 	private String name;
 	private int kor;
 	private int eng;
@@ -51,17 +52,73 @@ class StudentVer2Capsure//설계도&속성(변수)를 설정하는 역할
 */
 	}
 
+
+	//국어 성적 메소드들	
+	public void setKor(int inputKor)
+	{
+	//캡슐화Step2. 값을 입력하는 방법을 메소드를 통하는 것으로 제한을 하였습니다.
+	//이렇
+		if(inputKor < 0 || inputKor > 100)
+		{
+			return;
+		}
 	
-	public void setKor(int inputKor){
 		this.kor = inputKor;
 	}
-		
+
 	public int getKor(){
-		return kor;//나를 부른 프로그램에게 
+		return kor;//나를 부른 프로그램에게 내가 갖고 있는 국어성적값을 보내주는 것입니다.
+	}
+	//국어 성적 메소드들 종료
+
+
+	//영어 성적 메소드
+	public void seteng(int inputeng)
+	{
+	//캡슐화Step2. 값을 입력하는 방법을 메소드를 통하는 것으로 제한을 하였습니다.
+	//이렇
+		if(inputeng < 0 || inputeng > 100)
+		{
+			return;
+		}
+	
+		this.eng = inputeng;
 	}
 
 
+	public int geteng(){
+		return eng;//나를 부른 프로그램에게 내가 갖고 있는 국어성적값을 보내주는 것입니다.
+	}
+	//영어 성적 메소드 종료
+
+
+
+	//수학성적메소드
+	public void setMat(int inputMat)
+	{
+	//캡슐화Step2. 값을 입력하는 방법을 메소드를 통하는 것으로 제한을 하였습니다.
+	//이렇
+		if(inputMat < 0 || inputMat > 100)
+		{
+			return;
+		}
 	
+		this.math = inputMat;
+	}
+		
+	public int getMat(){
+		return math;//나를 부른 프로그램에게 내가 갖고 있는 국어성적값을 보내주는 것입니다.
+	}
+
+	
+	public int getTotal(){
+		return (this.kor + this.eng + this.math);
+	}	
+
+
+
+
+
 	/* 자료형을 만들경우 기본제공되는 main메소드는 필요가 없습니다.
 	   실행시키려는 목적이 아니니까요.
 	public static void main(String[] args) 

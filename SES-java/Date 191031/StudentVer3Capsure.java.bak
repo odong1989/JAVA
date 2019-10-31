@@ -2,7 +2,7 @@
 //성적하나를 표현하는 자료형입니다.
 //설계가 끝난 후 바로 먼저 제작되는 것 중 하나입니다.
 
-class StudentVer2Capsure//설계도&속성(변수)를 설정하는 역할
+class StudentVer3Capsure//설계도&속성(변수)를 설정하는 역할
 {
 	/*             객체
 		ⓐ속성(변수)	|	ⓑ행동(메소드)
@@ -27,6 +27,7 @@ class StudentVer2Capsure//설계도&속성(변수)를 설정하는 역할
 	private int kor;
 	private int eng;
 	private int math;
+
 	/*final을 쓰면 안되나요?
 	  1번만 입력받고 고칠수가 없죠.
 	  final은 누구도 바꿀수 없는 절대진리같은 경우에 활용합니다.
@@ -53,7 +54,7 @@ class StudentVer2Capsure//설계도&속성(변수)를 설정하는 역할
 	}
 
 
-	//국어 성적 메소드들	
+	//국어 성적관련 메소드들-----------------------------------------------------------------
 	public void setKor(int inputKor)
 	{
 	//캡슐화Step2. 값을 입력하는 방법을 메소드를 통하는 것으로 제한을 하였습니다.
@@ -69,14 +70,13 @@ class StudentVer2Capsure//설계도&속성(변수)를 설정하는 역할
 	public int getKor(){
 		return this.kor;//나를 부른 프로그램에게 내가 갖고 있는 국어성적값을 보내주는 것입니다.
 	}
-	//국어 성적 메소드들 종료
+	//국어 성적 메소드들 종료-----------------------------------------------------------------
 
 
-	//영어 성적 메소드
+	//영어 성적관련 메소드들-----------------------------------------------------------------
 	public void setEng(int inputEng)
 	{
 	//캡슐화Step2. 값을 입력하는 방법을 메소드를 통하는 것으로 제한을 하였습니다.
-	//이렇
 		if(inputEng < 0 || inputEng > 100)
 		{
 			return;
@@ -85,11 +85,11 @@ class StudentVer2Capsure//설계도&속성(변수)를 설정하는 역할
 		this.eng = inputEng;
 	}
 
-
+	
 	public int getEng(){
 		return this.eng;//나를 부른 프로그램에게 내가 갖고 있는 국어성적값을 보내주는 것입니다.
 	}
-	//영어 성적 메소드 종료
+	//영어 성적 메소드들 종료-----------------------------------------------------------------
 
 
 
@@ -111,12 +111,53 @@ class StudentVer2Capsure//설계도&속성(변수)를 설정하는 역할
 	}
 
 	
+	//총 처리 관련 메소드들-------------------------------------------------------------
+	
 	public int getTotal(){
 		return (this.kor + this.eng + this.math);
 	}	
 
+	public double getAvg(){
+		return (this.kor + this.eng + this.math) / 3.0;
+	}	
+
+	public String getGrade(){
+		String result="";
+	/*
+	if(getAvg()>=90)
+	{
+		result="수";
+	}
+	else if(getAvg()>=80)
+	{
+		result="우";
+	}
+	else if(getAvg()>=70)
+	{
+		result="미";
+	}
+	else if(getAvg()>=60)
+	{
+		result="양";
+	}
+	else
+	{
+		result="가";
+	}
+	*/
+	switch (getAvg())
+	{
+	case 90>= :result="ddd";
+				break;
+	default : break;
+	}				
 
 
+
+		return result;
+	}	
+
+		
 
 
 	/* 자료형을 만들경우 기본제공되는 main메소드는 필요가 없습니다.
