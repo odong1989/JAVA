@@ -1,0 +1,38 @@
+/*
+	출처 : SES 자바책 159페이지
+*/
+
+class staticMethod{
+	int i =10;
+
+	public void go(){
+		int i = 1;
+		System.out.println(this.i);
+		System.out.println(i);
+	}
+
+	public static int goStatic(){
+		//this 참조는 불가능 하다.
+		int j = 2;
+		System.out.println(j);
+		return j;
+	}
+
+	public static void main(String[] args){
+		staticMethodTest st = new staticMethodTest();	
+		st.go();
+
+		//main메소드에서 바로 접근할 수 있다.
+		System.out.println(goStatic());
+
+		//불가능사항1 - go()는 객체를 선언하지 않으면 쓸수 없다.
+		//System.out.println(go());
+
+
+		//불가능사항2 - static int goStatic()는 this를 통한 참조는 불가능하다.
+		//System.out.println(this.i);
+	}
+
+
+
+}

@@ -79,11 +79,8 @@ class PJ_BingoGameFinal
 		int flagTurn=0;	//0: 플레이어1(X), 1: 플레이어2차례(O)		 //변수⑩
 		int winFlag1=0;										 //변수⑪
 		int winFlag2=0;										 //변수⑫
-		//[1]변수선언종료--------------------------------------------------
+	//[1]변수선언종료--------------------------------------------------
 		
-
-
-
 
 	//[2]빙고게임시작--------------------------------------------------
 		for (int turnCount=1 ; turnCount <= gameLimit ; turnCount++)
@@ -120,7 +117,7 @@ class PJ_BingoGameFinal
 			}	
 			//step2.플레이어의 입력값 선택중복(중복입력) 체크 종료---------------------------------------
 		
-			//[신규!]step4.선택된 숫자는 O/X으로 표기하기 시작--------------------------------------------
+			//step3.선택된 숫자는 O/X으로 표기하기 종료--------------------------------------------
 			else
 			{
 				switch (flagTurn)
@@ -156,21 +153,20 @@ class PJ_BingoGameFinal
 				{//승리조건victoryCondition에 여러행에 걸쳐 씌여있기에 행의라인수만큼 반복한다.
 					for(int checkCell=0 ; checkCell <4 ; checkCell++)
 					{//승리조건이 {1,2,3}처럼 선언되어있기에 각 셀의 값을 확인한다.
-						if(player1[CheckCell] == victoryCondition[CheckRow][0] 
-						   || player1[CheckCell] == victoryCondition[CheckRow][1]
-						   || player1[CheckCell] == victoryCondition[CheckRow][2])
+						if(player1[checkCell] == victoryCondition[checkRow][0] 
+						   || player1[checkCell] == victoryCondition[checkRow][1]
+						   || player1[checkCell] == victoryCondition[checkRow][2])
 						{
 						  winFlag1++;
 						}
 
-						if(player2[CheckCell] == victoryCondition[CheckRow][0] 
-						   || player2[CheckCell] == victoryCondition[CheckRow][1]
-						   || player2[CheckCell] == victoryCondition[CheckRow][2])
+						if(player2[checkCell] == victoryCondition[checkRow][0] 
+						   || player2[checkCell] == victoryCondition[checkRow][1]
+						   || player2[checkCell] == victoryCondition[checkRow][2])
 						{
 						  winFlag2++;
 						}					
 					}	
-					
 		
 					if(winFlag1>=3)	//3*3판에 1라인 빙고이므로 3개가 동일선상일시 승리로 판단한다.
 					{
@@ -189,13 +185,21 @@ class PJ_BingoGameFinal
 						return;
 					}
 					else winFlag2=0;//승리조건에 부합못함을 확인했으므로 0으로 초기화.
+				
 				}//승리확인 for 종료
+					
 
 				flagTurn=(flagTurn+1)%2; //증감후 나머지 연산하여 0,1으로 플레이어턴 결정
 
 			//step3.플레이어의 승리여부 확인 종료---------------------------------------------------
 		
 		}//빙고게임 시작 for end
+		//Step6.무승부출력
+		//for문의 카운터인 turnCount는 gameLimit를 만족시킴 = 무승부임과 같으므로 
+		//if나 switch문 없이 자연스럽게 무승부으로 처리되었다.
+		drawSquare(field);
+		System.out.printf("무승부입니다.");						
+		System.out.println("게임을 종료합니다.");
 
 			
 			
