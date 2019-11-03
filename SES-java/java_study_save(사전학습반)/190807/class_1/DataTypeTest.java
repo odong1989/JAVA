@@ -1,0 +1,69 @@
+class DataTypeTest 
+{
+	public static void main(String[] args) 
+	{
+		int a;
+		short b;
+		long c;
+		float d;
+		double e;
+		char f;
+		boolean g;
+		String s;
+
+		a= 111;
+		b= 30000;
+		c= 1000000000000L;
+		//Long형 상수입니다. 라는 의미이다.
+		/*LONG형 이라고해도 웬만해서는 int형으로 처리하려고 한다.
+		  즉, 1000000000000이 long이 처리할 수 있는 값이어도
+		  컴이 멋대로 int형으로 처리하려고 하기에 에러가 난다.
+		  그래서 귀찮아도 숫자끝에 'L'을 붙여서 
+		  "이 숫자는 무조건 LONG형으로 처리하라"는 강제이다.
+		*/
+		e = 1.0;
+		e = 1/23e2;
+		d = 1.5f;
+
+		f='A';
+		System.out.println(f);
+		f=65;
+		System.out.println(f);
+		f = '\u0041'; //16진수로 65라는 코드이다.
+		System.out.println(f);
+
+		f=10;//10번은 개행코드이다. 즉 개행처리 된다. 
+				//이스케이프 문자로 대신 많이한다. 일반숫자10으로 오해하기 좋아서...
+
+		f='\n';//이스케이프 문자로 개행을 지시했다. 
+		System.out.println(f);
+
+		s="ㅋㅋㅋ \n ㅋㅋㅋㅋ";
+		System.out.println(s);
+
+		s="abc\nde\tfg";//\n:개행, \t:탭(여러칸 공백)
+		System.out.println(s);
+
+		s="경로는 c:\\newdir\\test 입니다.";// 원래는 c:\newdir\test 이지만 이스케이프문자로 오해한다
+		System.out.println(s);
+		
+		a = 1;
+		f= '1';
+		s="1";
+		System.out.println(a+1);//단순한 숫자계산
+		System.out.println(f+1);//'1'의 유니코드 49에 1을 더했다. 
+										  // char형(65000표현) + int형인데  int가 표현량이 더 크니
+										  //int형으로 계산하여 숫자로 처리되었다.
+		System.out.println(s+1);//걍 별개의 문자가 기차칸처럼 붙은 거.
+
+		g = true;
+		g = false;
+		g = a>1;
+
+		System.out.println(g);
+
+//		System.out.println(a);
+//		System.out.println(b);		
+//		System.out.println("Hello World!");
+	}
+}
