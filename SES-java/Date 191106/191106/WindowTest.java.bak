@@ -1,0 +1,11 @@
+import java.awt.Frame;
+
+class WindowTest extends Frame
+{
+	public static void main(String[] args) 
+	{
+		WindowTest t = new WindowTest(); //Obejct클래스 (java.lang.object)에
+		t.setVisible(true);
+
+	}
+}

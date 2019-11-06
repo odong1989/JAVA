@@ -1,0 +1,25 @@
+class StringTest3AnotherStrings 
+{
+	public static void main(String[] args) 
+	{
+		String a= new String("abc");
+		String b= new String("abc");
+		StringBuffer c= new StringBuffer("abc");
+		StringBuffer d= new StringBuffer("abc");
+
+		System.out.println("String a       :" + a);
+		System.out.println("String b       :" + b);
+		System.out.println("StringBuffer c :" + c);
+		System.out.println("StringBuffer d :" + d);
+
+		a= a+"d";
+		c.append("d");
+		System.out.println("a와 b의 주소는 같니?(a == b):" + a == b );
+		//a는 주소를 가리키는 상태이다.
+		//즉 "a의 주소와 b의 주소는 같니??"라고 묻는 것과 다를바가 없다.
+		System.out.println("c와 d의 값은 같니?(c == d) :" + c == d);
+		System.out.println(" :" + a.equals(b));
+		System.out.println(" :" + c.equals(b));
+		System.out.println();
+	}
+}
