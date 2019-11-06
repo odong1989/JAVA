@@ -8,7 +8,9 @@ class staticMethodTest{
 		st.go();
 
 		//main메소드에서 바로 접근할 수 있다.
-	 	goStatic();
+		//staticMethod.goStatic();
+		//goStatic();
+		System.out.println(goStatic());
 
 		//불가능사항1 - go()는 객체를 선언하지 않으면 쓸수 없다.
 		//System.out.println(go());

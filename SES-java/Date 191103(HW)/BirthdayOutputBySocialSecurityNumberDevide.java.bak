@@ -43,6 +43,7 @@ class BirthdayOutputBySocialSecurityNumberDevide
 {
 	public static void main(String[] args) 
 	{
+
 		int[] birthData={0, 0, 0, 0, 0};
 				  //출생 년/ 월/ 일/ 성/ Dday(살아온날)
 		/*int birthData[] : 입력자의 출생정보를 저장하기 위한 배열이다.
@@ -50,8 +51,6 @@ class BirthdayOutputBySocialSecurityNumberDevide
 							2개이상의 값 리턴받기가 어려워졌고,
 							이에따라 처리하는 메소드가 처리중에 값을 수정해주는 방식으로 하였다.
 		*/
-
-		person = new SocialSecurityNumberCheck();
 		System.out.println("주민번호 활용한 출생일 및 성별 해설프로그램입니다.");
 
 

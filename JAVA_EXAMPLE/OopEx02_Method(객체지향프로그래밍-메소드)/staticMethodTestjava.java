@@ -1,5 +1,6 @@
 /*
 	출처 : SES 자바책 159페이지
+	staticMethod클래스로 따로 두는 경우로 이해하고 실시.
 */
 
 class staticMethod{
