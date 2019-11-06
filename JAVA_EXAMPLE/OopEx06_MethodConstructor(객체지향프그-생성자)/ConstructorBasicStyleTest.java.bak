@@ -1,0 +1,11 @@
+class ConstructorBasicStyleTest
+{
+	public static void main(String[] args) 
+	{
+		ConstructorBasicStyle mc = new ConstructorBasicStyle();
+
+		System.out.println("age is : "+mc.age);
+		System.out.println("name is : "+mc.name);
+		System.out.println("Male is : "+mc.isMale);
+	}
+}

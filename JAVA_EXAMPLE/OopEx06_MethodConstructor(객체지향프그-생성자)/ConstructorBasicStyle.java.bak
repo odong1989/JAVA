@@ -1,0 +1,6 @@
+class ConstructorBasicStyle 
+{
+		int age;
+		String name;
+		boolean isMale;
+}
