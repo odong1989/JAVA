@@ -1,0 +1,9 @@
+class ObjectTest extends Object
+{
+	public static void main(String[] args) 
+	{
+		ObjectTest t = new ObjectTest();
+		System.out.println(t.toString());
+		System.out.println(t.equals(t));
+	}
+}
