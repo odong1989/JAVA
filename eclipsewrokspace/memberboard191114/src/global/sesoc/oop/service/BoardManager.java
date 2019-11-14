@@ -2,7 +2,12 @@ package global.sesoc.oop.service;
 //package END--------------------------------------------------------
 //import END--------------------------------------------------------
 
-public class BoardManager {
+public interface BoardManager {
+
 	
-	public void add()
+	
+//	public void addBoardEach();
+//	public  ShowBoardList();
+//	public public getBoardEach();
+	
 }

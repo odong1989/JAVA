@@ -19,6 +19,6 @@ public class BoardSetGet {
 	}
 
 	//@Override
-	System.out.println();
+	System.out.println("");
 
 }
