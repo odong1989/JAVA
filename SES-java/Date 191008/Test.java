@@ -8,8 +8,8 @@ class Test //이 클래스의 이름은 Test로 설정하였다!
 {
 	public static void main(String[] args) 
 	{
-		byte a = 10;
-		byte b,c;
+		int a = 10;
+		int b,c;
 		b=5;
 		c=a+b;
 		System.out.println(c);//한 줄 주석
