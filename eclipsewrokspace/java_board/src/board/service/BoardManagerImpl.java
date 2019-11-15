@@ -1,6 +1,7 @@
 package board.service;
 
 import java.util.ArrayList;
+
 import board.vo.Board;
 
 public class BoardManagerImpl implements BoardManager {
