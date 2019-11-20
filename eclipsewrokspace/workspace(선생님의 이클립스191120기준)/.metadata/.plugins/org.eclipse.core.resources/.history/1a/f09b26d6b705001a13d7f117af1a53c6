@@ -1,0 +1,16 @@
+package global.sesoc.java1.oop1113;
+
+import java.util.ArrayList;
+
+public class BoardTest {
+
+	public static void main(String[] args) {
+		ArrayList<Board> list = new ArrayList<Board>();
+		list.add(new Board(1,"aaa","글제목", "글내용"));
+		list.add(new Board(1,"aaa","글제목", "글내용"));
+		list.add(new Board(1,"aaa","글제목", "글내용"));
+		System.out.println(list);
+
+	}
+
+}

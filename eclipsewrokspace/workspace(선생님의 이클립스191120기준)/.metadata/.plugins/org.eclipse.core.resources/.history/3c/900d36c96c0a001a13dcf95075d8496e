@@ -1,0 +1,10 @@
+package global.sesoc.java1.io;
+
+public class IOTest3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

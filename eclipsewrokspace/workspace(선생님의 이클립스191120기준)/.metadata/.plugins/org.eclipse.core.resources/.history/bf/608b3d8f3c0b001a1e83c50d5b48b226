@@ -1,0 +1,32 @@
+package global.sesoc.java1.io;
+
+public class TextEditor {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+/*
+파일명 : abc
+내용을 입력하세요. 종료는 새로운 행에서 엔터
+가나다라
+abcd
+
+abc.txt파일이 저장되었습니다.
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+

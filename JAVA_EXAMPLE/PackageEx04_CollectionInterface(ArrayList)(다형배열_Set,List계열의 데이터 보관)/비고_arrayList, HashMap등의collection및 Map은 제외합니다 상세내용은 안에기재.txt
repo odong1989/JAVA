@@ -1,0 +1,11 @@
+아래의 배열들은 CollectionInterface(Set,List계열의 데이터 보관) 폴더에 저장한다.
+
+1.Collection계열
+  : Collection 경우 Set, List계열이 속한다.
+1.1Set
+  : TreeSet, HashSet
+1.2List
+  : LinkedList, ArrayList
+
+2.Map계열
+  : HashMap, TreeMap

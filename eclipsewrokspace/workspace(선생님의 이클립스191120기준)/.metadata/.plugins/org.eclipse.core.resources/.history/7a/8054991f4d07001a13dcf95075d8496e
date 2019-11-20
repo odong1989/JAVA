@@ -1,0 +1,6 @@
+package global.sesoc.java1.exception;
+
+//정수를 반복입력받아 합계. 정수가 아닌 값이 들어오면 종료.
+public class ExTest3 {
+
+}

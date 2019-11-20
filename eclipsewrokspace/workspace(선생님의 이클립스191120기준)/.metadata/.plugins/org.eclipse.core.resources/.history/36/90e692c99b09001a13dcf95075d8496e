@@ -1,0 +1,5 @@
+package global.sesoc.java1.exception;
+
+public class ScoreException extends Exception {
+
+}

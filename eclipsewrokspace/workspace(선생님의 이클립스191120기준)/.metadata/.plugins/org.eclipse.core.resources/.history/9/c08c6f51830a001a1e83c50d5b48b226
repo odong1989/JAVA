@@ -1,0 +1,23 @@
+package global.sesoc.java1.io;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class IOTest6 {
+
+	public static void main(String[] args) {
+		BufferedReader inFile = null;
+		String filename = "\\Java\\product.txt";
+		
+		//텍스트 파일 열기
+		//한줄 단위로 읽어서 String 타입으로 리턴
+		//읽은 한줄을 빈칸 기준으로 분리
+		//상품명과 금액(단가 * 수량)을 출력
+		//스트림 닫기	
+		
+
+	}
+
+}

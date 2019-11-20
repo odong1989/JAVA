@@ -1,0 +1,26 @@
+package global.sesoc.java1.io;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class IOTest3 {
+
+	public static void main(String[] args) {
+		FileOutputStream outFile = null;
+		String filename = "a.txt";
+		
+		try {
+			outFile = new FileOutputStream(filename);
+			outFile.write(100);
+			outFile.write('A');
+			outFile.write('°¡');
+			outFile.close();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+
+	}
+
+}

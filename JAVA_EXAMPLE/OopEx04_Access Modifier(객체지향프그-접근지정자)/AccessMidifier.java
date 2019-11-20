@@ -1,5 +1,5 @@
 /*
-	코드출처 : SES자바책 1489페이지
+	코드출처 : SES자바책 148~9페이지
 */
 
 public class AccessMidifier{

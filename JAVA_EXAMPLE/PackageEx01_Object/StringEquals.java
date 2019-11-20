@@ -1,0 +1,30 @@
+//SES java book197page
+/*API문서의 내용
+Modifier and Type		/	Method and Description 
+boolean					/	 equals(Object obj) 
+							Indicates whether some other object is "equal to" this one 
+*/
+public class StringEquals
+{
+	public static void main(String[] args) 
+	{
+		String s1 = new String("Hello"); 
+		String s2 = "Hello";			//둘다 똑같은 선언이다. s1방식이 정석이고, s2방식은 사용자편의위해 생성자를 편집해준 것.
+		
+		if(s1 == s2){
+			System.out.println("[단순IF비교]문자열s1과 문자열s2은 같다.");		
+		}
+		else{
+			System.out.println("[단순 if비교] 단순 if비교로는 String값 비교가 아니라 주소비교가 됨을 알 수 있다. \n");
+		}
+		
+
+		System.out.println("equals()메소드를 활용하였다. 즉 s1.equals(s2) 으로 비교실시.");		
+		if(s1.equals(s2)){
+			System.out.println("[equals활용한 if비교]문자열s1과 문자열s2은 같다.");		
+		}
+		else{
+			System.out.println("equals()메소드로도 안되면 문제가 있지.");
+		}		
+	}
+}

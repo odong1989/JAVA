@@ -1,0 +1,16 @@
+package global.sesoc.java1.exception;
+
+//예외 처리
+public class ExTest1 {
+	public static void main(String[] args) {
+		String a = "10";
+		String b = "3";
+		int i, j, k;
+		
+		i = Integer.parseInt(a);
+		j = Integer.parseInt(b);
+		k = i / j;
+		System.out.println(k);
+
+	}
+}

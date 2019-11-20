@@ -1,0 +1,14 @@
+package global.sesoc.java1.io;
+
+import java.io.File;
+
+public class FileTest {
+	public static void main(String[] args) {
+		File a = new File("\\Windows");
+		File b = new File(".");
+		File c = new File("sub");
+		File d = new File("a.txt");
+		File e = new File("\\Java\\source\\Sort1.java");
+		
+	}
+}
