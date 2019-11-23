@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="part2_1sampleByTicher/java_board/src"/>
+	<classpathentry kind="src" path="part2_2makeMe/memberboard191114/src"/>
+	<classpathentry kind="src" path="part2_2makeMe/teamRadom/src"/>
+	<classpathentry kind="src" path="part2_3completeTemplit/class/boardByJava/src"/>
+	<classpathentry kind="src" path="part2_3completeTemplit/method"/>
+	<classpathentry kind="output" path="part2_1sampleByTicher/java_board/bin"/>
+</classpath>

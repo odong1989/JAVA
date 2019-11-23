@@ -39,26 +39,28 @@ class StringTest1
 		//별거 아닌데 은근히 헷갈리고 시험문제로 낚기 차~암! 좋다!!!
 
 		a="abcABCabcABC";
-		System.out.println( a.charAt(1) );	
-		System.out.println( a.indexOf('c') );//[결과]2를 리턴한다. c의 좌표는 0부터 시작해서 2이다.	
-		System.out.println( a.indexOf('d') );//[결과]-1를 리턴한다. 못 찾았을 경우 -1을 리턴합니다.
-		System.out.println( a.indexOf('c',3) );//c를 검색한다. 단, 3번째 칸부터 시작한다.
-		System.out.println( a.indexOf("cccc") );
-		System.out.println( a.lastIndexOf('A') );
+		System.out.println("a=\"abcABCabcABC\";");	
+		System.out.println("a.charAt(1)         : " + a.charAt(1) );	
+		System.out.println("a.indexOf('c')      : " + a.indexOf('c') );//[결과]2를 리턴한다. c의 좌표는 0부터 시작해서 2이다.	
+		System.out.println("a.indexOf('d')      : " + a.indexOf('d') );//[결과]-1를 리턴한다. 못 찾았을 경우 -1을 리턴합니다.
+		System.out.println("a.indexOf('c',3)    : " + a.indexOf('c',3) );//c를 검색한다. 단, 3번째 칸부터 시작한다.
+		System.out.println("a.indexOf(\"cccc\") : " + a.indexOf("cccc") );
+		System.out.println("a.lastIndexOf('A')  : " + a.lastIndexOf('A') );
 //		System.out.println( a.substring('6') );
 			
 
 		a="Abc";
-		System.out.println( a.lastIndexOf("abc") );
-		System.out.println( a.valueOf("AB") );
-		System.out.println( a. endsWith("c") ); //"c"로 끝나는가?
-		System.out.println( a. toUpperCase());	//문자열 내의 "b"를 모두 "B"로 변경하세요.
+		System.out.println("a=\"Abc\";");	
+		System.out.println("a.lastIndexOf(\"abc\") : "+ a.lastIndexOf("abc") );
+		System.out.println("a.valueOf(\"AB\")      : "+ a.valueOf("AB") );
+		System.out.println("a. endsWith(\"c\")     : "+ a. endsWith("c") ); //"c"로 끝나는가?
+		System.out.println("a. toUpperCase()       : "+ a. toUpperCase());	//문자열 내의 "b"를 모두 "B"로 변경하세요.
 		System.out.println("");
-		System.out.println( a.compareTo("Abe") );
+		System.out.println( a.compareTo("abc") );//
 
 		System.out.println("");
 		a="abcde";
-		System.out.println( a.compareTo("abc") );
+		System.out.println( a.compareTo("abc") );//글자수가 2자리차이난다(=글자가 2개 부족하다) 라는 의미를 갖는다.
 		System.out.println("");
 
 		a="010-1234-5678";
