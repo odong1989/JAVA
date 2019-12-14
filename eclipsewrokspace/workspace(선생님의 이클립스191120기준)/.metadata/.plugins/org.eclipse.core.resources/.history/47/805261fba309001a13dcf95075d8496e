@@ -1,0 +1,11 @@
+package global.sesoc.java1.io;
+
+import java.io.File;
+
+public class FileTest {
+	public static void main(String[] args) {
+		File a = new File("\\Windows");
+		File b = new File(".");
+		
+	}
+}

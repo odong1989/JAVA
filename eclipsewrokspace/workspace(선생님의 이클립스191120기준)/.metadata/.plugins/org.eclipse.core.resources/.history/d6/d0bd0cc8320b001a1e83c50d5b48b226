@@ -1,0 +1,20 @@
+package global.sesoc.java1.io;
+
+//파일 복사
+public class FileCopy {
+	public static void main(String[] args) {
+		String filename1;
+		String filename2;
+		
+		//원본 파일의 이름과 경로를 입력받음 (예: \Java\a.jpg )
+		//파일이 없으면 다시 입력받음
+		
+		//복사본 파일의 이름과 경로를 입력받음 (예: .\a2.jpg )
+		//파일이 있으면 다시 입력받음
+		
+	}
+}
+
+
+
+

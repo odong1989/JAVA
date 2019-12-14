@@ -30,7 +30,7 @@ class WrapperTest
 		//x와 y에게는 주소값이 저장되어 있는 상태입니다. x는 100번지를, y는 200번지를 갖는 식이죠.
 		//그래서 숫자값 100으로 같은데도 두번째에서 거짓이라고 뜨는겁니다.
 
-		System.out.println(x.compareTo(10));
+		System.out.println(x.compareTo(100));
 		//객체가 갖고 있는 값을 비교하기 위해서는
 		//compareTo()메소드를 사용하여 실시합니다.
 		System.out.println("객체끼리의 부등호 연산은 최근에서야 되었습니다(예전에는 안됨)");

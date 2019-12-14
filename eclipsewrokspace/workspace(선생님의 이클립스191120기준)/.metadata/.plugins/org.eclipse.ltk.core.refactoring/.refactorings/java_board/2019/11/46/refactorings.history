@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;BoardManager.java&apos; to &apos;java_board/src/global.sesoc.board.service&apos;&#x0D;&#x0A;- Original project: &apos;java_board&apos;&#x0D;&#x0A;- Destination element: &apos;java_board/src/global.sesoc.board.service&apos;&#x0D;&#x0A;- Original element: &apos;global.sesoc.board.ui.BoardManager.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;global.sesoc.board.service" element1="/src&lt;global.sesoc.board.ui{BoardManager.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1573612020845" units="1" version="1.0"/>
+</session>

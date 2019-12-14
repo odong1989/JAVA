@@ -1,0 +1,23 @@
+package global.sesoc.java1.exception;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+public class ExTest6 {
+	public static void main(String[] args) {
+		int n = 0;
+		n = inputScore();
+		System.out.println("점수는 " + n + "점입니다.");
+	}
+	
+	public static int inputScore() {
+		int score = 0;
+		Scanner scan = new Scanner(System.in);
+		System.out.print("점수 입력 : ");
+		score = scan.nextInt();
+		return score;
+	}
+
+}
+
+

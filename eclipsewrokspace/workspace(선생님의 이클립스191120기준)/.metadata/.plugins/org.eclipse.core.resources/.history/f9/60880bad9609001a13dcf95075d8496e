@@ -1,0 +1,22 @@
+package global.sesoc.java1.exception;
+
+import java.io.IOException;
+
+public class ExTest5 {
+
+	public static void main(String[] args) throws Exception {
+		int a = 0;
+		
+		System.out.println(a);
+
+	}
+	
+	public static int sub() {
+		int ch;
+		
+		ch = System.in.read();
+		
+		return ch;
+	}
+
+}

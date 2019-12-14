@@ -1,0 +1,9 @@
+package global.sesoc.java1.io;
+
+public class FileTest {
+
+	public static void main(String[] args) {
+
+	}
+
+}

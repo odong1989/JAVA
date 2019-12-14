@@ -1,0 +1,14 @@
+package global.sesoc.java1.exception;
+
+public class ExTest4 {
+
+	public static void main(String[] args) {
+
+		int a;
+		
+		a = System.in.read();
+
+		System.out.println(a);
+	}
+
+}

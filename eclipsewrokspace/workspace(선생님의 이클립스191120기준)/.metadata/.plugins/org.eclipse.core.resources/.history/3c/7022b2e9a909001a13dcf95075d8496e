@@ -1,0 +1,50 @@
+package global.sesoc.java1.io;
+
+import java.io.File;
+import java.io.IOException;
+
+public class FileTest {
+	public static void main(String[] args) {
+		File a = new File("\\Windows");
+		File b = new File(".");
+		File c = new File("./sub");
+		File d = new File("a.txt");
+		File e = new File("\\Java\\source\\Sort1.java");
+		
+		System.out.println(a.getAbsolutePath());
+		System.out.println(b.getAbsolutePath());
+		System.out.println(b.getParent());
+		System.out.println(e.getName());
+		
+		System.out.println(a.exists());
+		System.out.println(a.isFile());
+		System.out.println(a.isDirectory());
+		System.out.println(a.canRead());
+		
+		//叼泛配府 积己
+		if (c.mkdir()) 
+			System.out.println(c.getName() + "捞 积己凳");
+		else
+			System.out.println("弃歹 积己 角菩");
+		
+		//颇老 积己
+		try {
+			if (d.createNewFile()) 
+				System.out.println(d.getName() + "捞 积己凳");
+			else
+				System.out.println("颇老 积己 角菩");
+		} catch (IOException e1) {
+			System.out.println("颇老 积己 角菩");
+		}
+		
+		System.out.println();
+		
+	}
+}
+
+
+
+
+
+
+
