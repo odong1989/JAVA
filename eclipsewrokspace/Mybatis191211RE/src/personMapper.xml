@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원정보 처리 SQL -->
+<mapper namespace="global.sesoc.person.dao.PersonMapper">
+<!--              |----인터페이스의 이름---|  -->
+<!-- PersonMapper는 추상클래스(interface)여야 합니다!!
+         이유는?  -->
+
+<!-- 회원 정보 저장 -->
+<insert id="insertPerson" parameterType="person">  
+<!-- parameterType="person"은 줄여쓴 형태이다. 
+    사람이 선언을 해야한다.	
+    <typeAliases>
+		<typeAlias type="global.sesoc.person.vo.Person" alias="person" />
+    </typeAliases>
+    이렇게 선언해줘야 한다(mybatis-config.xml에 선언됩니다)	
+-->
+insert into person (
+	num
+	, name
+	, age
+)
+values (
+	person_seq.nextval
+	, #{name}
+	, #{age}
+)
+</insert> <!-- xml은 무조건! 끝나는 태그가 있어야 합니다. 없으면 에러100%인데 이클립스에서 에러를 지적못해서 헤맵니다.-->
+
+<!-- 회원 정보 삭제 19.12.10 압축해제후 3교시에 추가함.-->
+<!-- 파라미터로 들어올 수 있는 자료형 : int, string, list, map -->
+<delete id="deletePerson" parameterType="int">
+delete from person where num= #{num}
+</delete>
+
+<!-- 회원 정보 수정 19.12.11 3교시에 추가함.-->
+<!-- 파라미터로 들어올 수 있는 자료형 : int, string, list, map -->
+<!-- int :  
+	 string : 
+	 list : 같은 형의 자료들을 여러개 동시에 보낼시 사용합니다.
+	  map : 다른 형의 자료들을 여러개 동시에 보낼시 사용합니다.
+ -->
+<update id="updatePerson" parameterType="int">
+update person set age=#{age} where num= #{num}
+</update>
+
+<!-- 19.12.12 회원 1명의 정보를 읽기 -->
+<!-- 1)회원정보 읽기위해 필요한것 : 회원번호 			    =>parameterType="int"입니다.  -->
+<!-- 2)회원정보 출력사항	      : 
+     3)자바에게 전달위해 필요한것 : Person형 객체를 사용한다 => resultType="person"
+       - 마이바틱스에게 resultType="person"라고 1줄만 작성하면 알아서 자바에게까지 전달해준다.
+       - (대신 프로그래머는 기본생성자,get/set계열 메소드들을 잘 정의해주는 기초공사는 해야한다.(VO패키지의 Person.java)     
+       -->
+<select id="selectPerson" parameterType="int" resultType="person">
+select * from person where num=#{num}
+<!--  -->
+</select><!-- selectPerson 끝 -->
+<!-- [여담] 자동완성기능은 인터넷이 끊어지면  작동않습니다. 
+	 그래서 더욱 API문서 pdf파일을 열심히 읽어야 합니다-->
+
+</mapper>
+
+
+
+
+
