@@ -11,7 +11,6 @@ public class BoardMain {
 
 	public static void main(String[] args) {
 		BoardUI boarUI = new BoardUI();
-		System.out.println("BoardMain클래스의 메인메소드가 종료됩니다.");
 	}
 
 }
