@@ -2,7 +2,11 @@ package global.sesoc.board.ui;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import org.apache.ibatis.session.SqlSession;
+
 import global.sesoc.board.dao.BoardDAO;
+import global.sesoc.board.dao.BoardMapper;
 import global.sesoc.board.vo.BoardVO;
 
 //
@@ -21,6 +25,8 @@ public class BoardUI {
 		case 1 : wirte(); 	break;
 		case 2 : read();	break;
 		case 3 : list();	break;
+		case 4 : delete();  break;
+		case 5 : update();  break;
 		case 0 : System.out.println("프로그램을 종료합니다."); 
 				 return;
 			
@@ -36,6 +42,8 @@ public class BoardUI {
 		System.out.println("1. 글쓰기");
 		System.out.println("2. 글읽기");	
 		System.out.println("3. 전체 글목록");	
+		System.out.println("4. 삭제");	
+		System.out.println("5. 글수정(ID는 변경불가)");			
 		System.out.println("0. 종료");	
 		System.out.print("선택 : ");	
 		
@@ -117,6 +125,50 @@ public class BoardUI {
 								BoardAll.get(print).getLikes()		
 					);
 		}
+	}//list() END
+	
+	//글 삭제
+	public void delete(){ 
+		//숫자이외의 값이 들어오면 예외처리로 처리토록하세요.
+		//시간관계상 예외처리는 생략.(#직접처리하는 의미)
+		
+		System.out.print("삭제할 글번호 : ");
+		int n = scan.nextInt();
+		
+		int cnt = dao.deleteBoard(n);
+		if( cnt == 0 ) {
+			System.out.println("해당되는 번호의 글이 없습니다.");
+		}
+		else
+			System.out.println("삭제되었습니다.");			
+	}
+	
+	public void update(){
+		BoardVO vo = new BoardVO();
+
+		System.out.print("수정할 글번호 : ");		
+		int num = scan.nextInt();
+		scan.nextLine(); //스택비우기
+		
+		if (dao.nullCheck(num) != null){
+			System.out.println(num+"번의 글이 존재함을 확인하였습니다.");
+
+			vo.setNum(num);
+			System.out.print("글제목 : ");
+			String title = scan.nextLine();		
+			
+			System.out.print("글내용 : ");		
+			String contents = scan.nextLine();
+			
+			vo.setNum(num);
+			vo.setTitle(title);
+			vo.setContents(contents);
+			
+			dao.updateBoard(vo);
+			System.out.println("수정되었습니다.");
+		}
+		else //수정할 글이 없다고 확인된 경우
+	  	  System.out.println("대상 글이 없습니다.");
 	}
 	
 }

@@ -19,6 +19,7 @@ public class MybatisConfig {
 		try {
 			Reader reader = Resources.getResourceAsReader(resource);
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+			//sqlSessionFactory : 모든 MyBatis 애플리케이션은 SqlSessionFactory 인스턴스를 사용.	
 			reader.close();
 		} catch (Exception e) {
 			e.printStackTrace();
