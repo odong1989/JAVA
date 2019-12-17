@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- [1] DB접속정보 값을 가지고 있는 파일 설정 -->
+	<properties resource="db.properties" />
+
+<!--  Mapper 파일 include를 앞에 배치하면 에러가 발생되는이유는 ? 
+      [정답] xml은 포맷이 못박히듯이 정해져있으므로 이대로 써야합니다.
+      		안타깝지만 수업에서 배운대로 따라하세요...
+      		간바레.... orz....
+      		
+	<mappers>
+		<mapper resource="boardMapper.xml" />
+	</mappers>
+ -->
+
+
+	<!-- [2]Java Class에 대한 alias 지정 -->
+	<typeAliases>
+		<typeAlias type="global.sesoc.board.vo.BoardVO" alias="board" />
+		<!-- VO객체를 생성 및 get/set메소드를 보유한 BoardVO를 board라는 별칭으로 부른다.-->
+	</typeAliases>
+	
+	<!-- DB접속 정보 셋팅 -->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- Mapper 파일 include -->
+	<mappers>
+		<mapper resource="boardMapper.xml" />
+	</mappers>
+	
+</configuration>

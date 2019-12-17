@@ -20,16 +20,17 @@ public class BoardUI {
 	//2.1 기본생성자
 	public BoardUI(){
 		//반복문으로 메뉴출력, 번호 선택등
-		int menu=printMainMenu();
-		switch (menu) {
-		case 1 : wirte(); 	break;
-		case 2 : read();	break;
-		case 3 : list();	break;
-		case 4 : delete();  break;
-		case 5 : update();  break;
-		case 0 : System.out.println("프로그램을 종료합니다."); 
-				 return;
-			
+			while(true) {
+			int menu=printMainMenu();
+			switch (menu) {
+			case 1 : wirte(); 	break;
+			case 2 : read();	break;
+			case 3 : list();	break;
+			case 4 : delete();  break;
+			case 5 : update();  break;
+			case 0 : System.out.println("프로그램을 종료합니다."); 
+					 return;
+			}
 		}
 	}		
 	//[예외처리는 직접알아서하세요!!]
@@ -40,7 +41,7 @@ public class BoardUI {
 		int numMenu;
 		System.out.println("[Board 게시판]");
 		System.out.println("1. 글쓰기");
-		System.out.println("2. 글읽기");	
+		System.out.println("2. 글읽기(1개의 글만 읽기)");	
 		System.out.println("3. 전체 글목록");	
 		System.out.println("4. 삭제");	
 		System.out.println("5. 글수정(ID는 변경불가)");			
