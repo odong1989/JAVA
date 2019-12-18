@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원정보 처리 SQL  mapper구간내에 있는 SQLansemfdl -->
+<mapper namespace="global.sesoc.board.dao.BoardMapper"><!-- BoardMapper.java -->
+<!-- BoardMapper.java는 추상화클래스이며 
+	public int writeBoard(BoardVO vo);
+	public BoardVO readBoard(int num);
+	public ArrayList<BoardVO> listBoard();
+	위의 3가지 메소드들이 가이드처럼 제시되어 있다.
+	
+	이들에 대하여 SQL문을 정의하는 것이 boardMapper.xml의 역할이다.
+-->
+
+
+<!-- 1. 글쓰기 저장 -->
+<insert id="writeBoard" parameterType="board">  
+insert into board (
+	num
+	, id
+	, title
+	, contents
+)
+values (
+	board_seq.nextval
+	, #{id}
+	, #{title}
+	, #{contents}
+)
+</insert> <!-- xml은 무조건! 끝나는 태그가 있어야 합니다. 없으면 에러100%인데 이클립스에서 에러를 지적못해서 헤맵니다.-->
+
+
+<!-- [2] 1개의 글의 정보를 읽어오기 -->
+
+<select id="readBoard" parameterType="int" resultType="board">
+select * from board 
+<if test="_parameter != 0"><!-- 동적SQL문의 조건에서 파라미터로 구별을 하려는 경우(get메소드가 없는 경우)에는 -->
+where num=#{num}   	       <!-- _parameter이라고하여 입력되는 파라미터값으로 구별을 할 수 있다. -->	
+</if>
+order by num
+</select>
+
+<!-- [3] 모든 글들의 정보를 읽어오기-->
+<select id="listBoard" resultType="board">
+select * from board order by num desc
+</select>
+
+<!-- 동적 SQL을 활용하여 1개읽기/ 모든 글읽기용 SQL을 따로 만들필요가 없죠.
+	191217 2교시는 위의 2개를 1개로 통합하는 동적 SQL을 만들어봅시다
+ -->
+
+
+
+<!-- [4]글 삭제 -->
+<delete id="deleteBoard" parameterType="int">
+delete from board where num= #{num}
+</delete>
+
+
+<!-- [5]글 수정, 191217 코드 보기좋게 개행.-->
+<update id="updateBoard" parameterType="board">
+update 
+	board 
+set 	
+	num=#{num} <!-- 모조리 if문하면 실행되는게 없어서 에러 날수 있기에 무조건참인 꼼수를하나 넣어둠. -->
+			   <!-- 꼼수는 실행되어도 글의 내용에 변동을 주지는 않는 방향으로 만든다. -->
+	
+	<if test="title !=null and title !='' "><!-- title = gettitle메소드를 통해 받은 타이틀값입니다. -->
+	, title=#{title}
+	</if>
+	
+	<if test="contents != null and contents !='' "> 
+	<!-- getcontents 메소드값이 null이나 공란인지 확인 -->
+	, contents=#{contents} 
+	<!-- 공란으로 업뎃되지않고 기존의 내용이 보존됩니다. -->
+	</if>
+where 
+	num= #{num}
+</update>
+
+<!-- 
+    191217 update문에 동적SQL을 적용하는 실습을 할겁니다(pdf는 42페이지에서 언급됩니다)
+    
+    if
+    choose(when,otherwise)
+    trim(where, set)
+    foreach
+	위의 4개중 if,choose가 많이쓰이고, 위의 update문에 if를 활용하여 동적SQL로 만들어보자.
+-->
+
+
+<select id="searchBoard" parameterType="map" resultType="board">
+select
+ 		* 
+from
+		board
+<where>
+	<if test="type == 1"><!-- 타이틀 검색인지 아닌지부터 조건구별합니다. 이를위해 키값으로 정의한 map내의 type칼럼을 확인. -->
+	    upper(title) like '%' || upper(#{word}) || '%' <!-- 검색단어, 타이틀제목도 모두 대문자로 변경하여 대소문자다름으로 인해 검색안되는 사태를 예방. -->
+	</if>
+	<if test="type == 2"><!-- 타이틀 검색아니니 본문검색으로 처리. -->
+	    upper(contents) like '%' || upper(#{word}) || '%'
+	</if>
+</where><!-- 키값인 type가 1,2 이외인 경우에는 아예 where조건문 자체를 실행하지 않는다. -->
+
+</select>
+
+
+</mapper>

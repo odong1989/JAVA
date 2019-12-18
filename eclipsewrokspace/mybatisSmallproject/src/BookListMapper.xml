@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="global.sesoc.DAO.BookListMapper">
+
+<!-- public int insertBook(); -->
+
+
+<insert parameterType="book" id="insertBook"> insert into BookList() </insert>
+
+<!-- public void showBook(); -->
+
+
+<select id="showBook"> </select>
+
+<!-- public int deleteBook(); -->
+
+
+<delete id="deleteBook"> </delete>
+
+<!-- public int updateBook(); -->
+
+
+<update id="updateBook"> </update>
+
+<!-- public void searchBook(); -->
+
+
+<select id="searchBook"> </select>
+
+</mapper>
