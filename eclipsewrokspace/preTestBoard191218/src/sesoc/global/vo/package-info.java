@@ -1,0 +1,1 @@
+package sesoc.global.vo;

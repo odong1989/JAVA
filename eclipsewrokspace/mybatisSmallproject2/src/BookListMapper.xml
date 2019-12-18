@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<mapper namespace="global.sesoc.DAO.BookListMapper">
+
+<!-- public int insertBook(); -->
+
+
+<insert parameterType="book" id="insertBook"> insert into BookList() </insert>
+
+<!-- public void showBook(); -->
+
+
+<select id="showBook"> </select>
+
+<!-- public int deleteBook(); -->
+
+
+<delete id="deleteBook"> </delete>
+
+<!-- public int updateBook(); -->
+
+
+<update id="updateBook"> </update>
+
+<!-- public void searchBook(); -->
+
+
+<select id="searchBook"> </select>
+
+</mapper>

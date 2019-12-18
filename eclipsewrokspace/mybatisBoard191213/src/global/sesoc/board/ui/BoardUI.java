@@ -60,11 +60,7 @@ public class BoardUI {
 		String contents = scan.nextLine();
 
 		
-		//SQL에게 보낼수있도록 하기위해 BoardVO 생성&데이터를 패스! 입니다
-		BoardVO vo = new BoardVO();
-		vo.setId(id);
-		vo.setTitle(title);
-		vo.setContents(contents);
+		//SQLfontents);
 				int cnt = dao.writeBoard(vo);
 		if(cnt ==1) System.out.println("저장되었습니다.");
 		else System.out.println("저장실패");
