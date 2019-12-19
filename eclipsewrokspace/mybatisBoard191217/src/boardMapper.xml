@@ -36,6 +36,7 @@ values (
 
 <select id="readBoard" parameterType="int" resultType="board">
 select * from board 
+<!-- <if test="_parameter != 0"> 언더바 들어가는게 맞는가? -->
 <if test="_parameter != 0"><!-- 동적SQL문의 조건에서 파라미터로 구별을 하려는 경우(get메소드가 없는 경우)에는 -->
 where num=#{num}   	       <!-- _parameter이라고하여 입력되는 파라미터값으로 구별을 할 수 있다. -->	
 </if>

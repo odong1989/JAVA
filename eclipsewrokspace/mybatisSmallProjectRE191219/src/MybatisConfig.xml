@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+
+<!-- step1 db.properties set -->
+<properties resource = "db.properties" />
+
+<!-- step2 alias set -->
+<typeAliases>
+	<typeAlias type="global.sesoc.book.vo.BookVO" alias ="book" />
+</typeAliases>
+
+<!-- step3 DB connect set -->
+
+<environments default = "development">
+  <environment id = "development">
+    <transactionManager type="JDBC" />
+ 	  <dataSource type ="POOLED">
+		<property name="driver" value="${driver}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${username}" />
+		<property name="password" value="${password}" />		
+	  </dataSource>
+  </environment> 
+</environments>
+
+<mappers>
+	<mapper resource ="BookMapper.xml" />
+</mappers>
+
+</configuration>

@@ -7,7 +7,11 @@
 <!-- public int insertBook(); -->
 
 
-<insert parameterType="book" id="insertBook"> insert into BookList() </insert>
+<insert id="insertBook" parameterType="book" > 
+insert into 
+BookList(BOOKCODE,BOOKNAME,BOOKFORMAT,BOOKKINDS)
+  values(BOOKLIST_SEQ,#{bookName}, #{bookKinds}, #{bookFormat}) 
+</insert>
 <!-- public void showBook(); -->
 
 
