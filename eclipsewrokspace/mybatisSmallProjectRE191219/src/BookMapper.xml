@@ -18,11 +18,18 @@ where
 BOOKCODE =#{deleteBookNumber}
 </delete>
 
-<select id="searchBook" parameterType="book" resultType="book">
+<select id="searchBook" parameterType="map" resultType="book">
 select * from bookList 
-where
-BOOKNAME like '%'||#{bookName}||'%'
+<where>
+	<if test="type==1"> <!-- 책코드로 검색 -->
+	</if>
+	<if test="type==2"> <!-- 책이름로 검색 -->
+		upper(BOOKNAME) like '%'||upper(#{word})||'%'
+	</if>
+</where>
+
 </select> 
+
 
 <select id="showAllBook" resultType="book">
 select * from bookList

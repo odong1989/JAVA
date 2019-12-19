@@ -3,6 +3,7 @@ package global.sesoc.book.dao;
 import global.sesoc.book.vo.BookVO;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -45,17 +46,20 @@ public class BookDAO {
 			e.printStackTrace();
 		}
 		return result;
-	}
+	}		
 	
-	public ArrayList<BookVO> searchBook(BookVO book){
+	
+	public ArrayList<BookVO> searchBook(int searchType,String searchText ){
 		SqlSession ss=null;
 		ArrayList<BookVO> result= new ArrayList<>() ;
+		HashMap<String, Object> map =new HashMap<String, Object>();
+		map.put("type",searchType);
+		map.put("word",searchText);
 		
 		try {
 			ss=factory.openSession();
 			BookMapper mapper = ss.getMapper(BookMapper.class);
-			result= mapper.searchBook(book);
-	
+			result= mapper.searchBook(map);
 		}
 		catch(Exception e) {
 			e.printStackTrace();

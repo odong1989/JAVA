@@ -110,17 +110,27 @@ public class BookUI {
 	}	
 
 	public void searchBook(){
-		BookVO searchBook = new BookVO();
-		ArrayList<BookVO> result = new ArrayList<>();
+		ArrayList<BookVO>  result = new ArrayList<>();
+		int searchType =0;
+		String searchText= null;
+		
 		System.out.print("3.책 검색");	
 		try {
-			System.out.print("검색할 책 이름 : ");					
-			searchBook.setBookName(scan.nextLine());			
+			System.out.println("1. 책 번호");	
+			System.out.println("2. 책 이름");	
+			System.out.print("어떤 방식으로 검색? :");
+			searchType =scan.nextInt();
+			scan.nextLine();	
+			if(searchType==2) {
+				System.out.print("검색할 책 이름  : ");	
+				searchText =scan.nextLine();
+				result = dao.searchBook(searchType,searchText);
+			}
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
-		result = dao.searchBook(searchBook);
+			
 		if(result.size()==0 ){
 			System.out.print("검색결과가 없습니다");								
 		}
