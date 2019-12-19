@@ -18,6 +18,12 @@ where
 BOOKCODE =#{deleteBookNumber}
 </delete>
 
+<select id="searchBook" parameterType="book" resultType="book">
+select * from bookList 
+where
+BOOKNAME like '%'||#{bookName}||'%'
+</select> 
+
 <select id="showAllBook" resultType="book">
 select * from bookList
 </select> 

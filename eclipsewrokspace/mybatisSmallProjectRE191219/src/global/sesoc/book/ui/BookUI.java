@@ -110,8 +110,25 @@ public class BookUI {
 	}	
 
 	public void searchBook(){
+		BookVO searchBook = new BookVO();
+		ArrayList<BookVO> result = new ArrayList<>();
 		System.out.print("3.책 검색");	
-		
+		try {
+			System.out.print("검색할 책 이름 : ");					
+			searchBook.setBookName(scan.nextLine());			
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		result = dao.searchBook(searchBook);
+		if(result.size()==0 ){
+			System.out.print("검색결과가 없습니다");								
+		}
+		else {
+			for(int print=0;print<result.size();print++){
+				System.out.println(result.get(print));
+			}
+		}
 	}
 	
 	public void showAll(){

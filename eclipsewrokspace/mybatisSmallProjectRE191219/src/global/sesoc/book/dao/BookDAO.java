@@ -47,6 +47,23 @@ public class BookDAO {
 		return result;
 	}
 	
+	public ArrayList<BookVO> searchBook(BookVO book){
+		SqlSession ss=null;
+		ArrayList<BookVO> result= new ArrayList<>() ;
+		
+		try {
+			ss=factory.openSession();
+			BookMapper mapper = ss.getMapper(BookMapper.class);
+			result= mapper.searchBook(book);
+	
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}		
+	
+	
 	public ArrayList<BookVO> showAllBook(){
 		SqlSession ss=null;
 		ArrayList<BookVO> result= new ArrayList<>();
@@ -54,7 +71,6 @@ public class BookDAO {
 			ss=factory.openSession();
 			BookMapper mapper = ss.getMapper(BookMapper.class);
 			result= mapper.showAllBook();
-			ss.commit();
 		}
 		catch(Exception e) {
 			e.printStackTrace();
